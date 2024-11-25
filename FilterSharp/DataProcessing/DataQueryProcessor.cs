@@ -1,3 +1,4 @@
+using FilterSharp.Caching;
 using FilterSharp.Filter;
 using FilterSharp.Input;
 using Microsoft.EntityFrameworkCore;
@@ -7,8 +8,12 @@ namespace FilterSharp.DataProcessing;
 public static class DataQueryProcessor
 {
     public static async Task<(List<T> items, int page, int pageSize, int totalCount)> ToDataSourceResultAsync<T>(
-        this IQueryable<T> queryable, DataRequest request)
+        this IQueryable<T> queryable, DataRequest request,MapperCacheManager cacheManager) where T : class
     {
+        
+        var mapper = cacheManager.GetMapper<T>();
+
+        
         if (request?.Filters?.Count() > 0)
         {
             var predicate = ExpressionFilterBuilder<T>.Build(request!.Filters.ToList());

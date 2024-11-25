@@ -15,12 +15,12 @@ public sealed class FilterSharpMapper
     {
         
     }
-    public FilterSharpMapper(string field)
+    internal FilterSharpMapper(string field)
     {
         Field = field;
     }
 
-    public bool DetectedFilterOperator()
+    internal bool DetectedFilterOperator()
     {
         return CanOperatorNames != null && CanOperatorNames.Any();
     }
