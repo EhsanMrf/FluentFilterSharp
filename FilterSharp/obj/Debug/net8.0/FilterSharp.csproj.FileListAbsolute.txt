@@ -1,0 +1,11 @@
+E:\FilterSharp\FilterSharp\FilterSharp\bin\Debug\net8.0\FilterSharp.deps.json
+E:\FilterSharp\FilterSharp\FilterSharp\bin\Debug\net8.0\FilterSharp.dll
+E:\FilterSharp\FilterSharp\FilterSharp\bin\Debug\net8.0\FilterSharp.pdb
+E:\FilterSharp\FilterSharp\FilterSharp\obj\Debug\net8.0\FilterSharp.GeneratedMSBuildEditorConfig.editorconfig
+E:\FilterSharp\FilterSharp\FilterSharp\obj\Debug\net8.0\FilterSharp.AssemblyInfoInputs.cache
+E:\FilterSharp\FilterSharp\FilterSharp\obj\Debug\net8.0\FilterSharp.AssemblyInfo.cs
+E:\FilterSharp\FilterSharp\FilterSharp\obj\Debug\net8.0\FilterSharp.csproj.CoreCompileInputs.cache
+E:\FilterSharp\FilterSharp\FilterSharp\obj\Debug\net8.0\FilterSharp.dll
+E:\FilterSharp\FilterSharp\FilterSharp\obj\Debug\net8.0\refint\FilterSharp.dll
+E:\FilterSharp\FilterSharp\FilterSharp\obj\Debug\net8.0\FilterSharp.pdb
+E:\FilterSharp\FilterSharp\FilterSharp\obj\Debug\net8.0\ref\FilterSharp.dll
