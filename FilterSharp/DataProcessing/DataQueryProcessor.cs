@@ -1,19 +1,13 @@
-using FilterSharp.Caching;
 using FilterSharp.Filter;
 using FilterSharp.Input;
 using Microsoft.EntityFrameworkCore;
 
 namespace FilterSharp.DataProcessing;
 
-public static class DataQueryProcessor
+public class DataQueryProcessor :IDataQueryProcessor
 {
-    public static async Task<(List<T> items, int page, int pageSize, int totalCount)> ToDataSourceResultAsync<T>(
-        this IQueryable<T> queryable, DataRequest request,MapperCacheManager cacheManager) where T : class
+    public  async Task<(List<T> items, int page, int pageSize, int totalCount)> ApplyDataRequestAsync<T>(IQueryable<T> queryable, DataRequest request) 
     {
-        
-        var mapper = cacheManager.GetMapper<T>();
-
-        
         if (request?.Filters?.Count() > 0)
         {
             var predicate = ExpressionFilterBuilder<T>.Build(request!.Filters.ToList());
@@ -24,7 +18,7 @@ public static class DataQueryProcessor
         {
             var pageNumber = request?.PageNumber ?? 1;
             var pageSize = (request?.PageSize ?? 0) == 0 ? 15 : request.PageSize;
-
+            
             // Combine the data fetching and count in one query
             var queryResult = await queryable
                 .Select(item => new { item, totalCount = queryable.Count() })

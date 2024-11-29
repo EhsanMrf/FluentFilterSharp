@@ -2,10 +2,14 @@ using FilterSharp.FluentSharp;
 
 namespace FilterSharp.Caching;
 
-public class MapperCacheManager
+public sealed class MapperCacheManager :IMapperCacheManager
 {
     private readonly Dictionary<Type, object> _mappersCache = new();
 
+    private MapperCacheManager()
+    {
+        
+    }
     public MapperCacheManager(IServiceProvider serviceProvider)
     {
         var assembly = AppDomain.CurrentDomain.GetAssemblies();

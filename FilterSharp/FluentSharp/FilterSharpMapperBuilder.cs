@@ -1,4 +1,5 @@
 using System.Linq.Expressions;
+using FilterSharp.Enum;
 using FilterSharp.Extensions;
 using FilterSharp.FluentSharp.Model;
 
@@ -10,7 +11,7 @@ public class FilterSharpMapperBuilder<T>
     private bool CanFilter { get; set; }
     private bool CanSort { get; set; }
     private string? FilterFieldName { get; set; }
-    private IEnumerable<string>? CanOperatorNames { get; set; }
+    private IEnumerable<FilterOperator>? CanOperatorNames { get; set; }
 
     private readonly HashSet<FilterSharpMapper> SharpMappers;
 
