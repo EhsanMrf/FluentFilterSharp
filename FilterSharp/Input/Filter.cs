@@ -9,7 +9,7 @@ public sealed class Filter
     /// <summary>
     /// default : and 
     /// </summary>
-    public string Logic { get; set; } = "and";
+    public string Logic { get; set; }
 
     /// <summary>
     /// value :  automatic convert to type

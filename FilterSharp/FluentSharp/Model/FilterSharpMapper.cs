@@ -24,4 +24,6 @@ public sealed class FilterSharpMapper
     {
         return CanOperatorNames != null && CanOperatorNames.Any();
     }
+
+    internal string GetField() => Field;
 }

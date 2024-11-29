@@ -1,42 +1,37 @@
-using FilterSharp.Filter;
+using FilterSharp.DataProcessing.DataFilter;
+using FilterSharp.DataProcessing.Pagination;
 using FilterSharp.Input;
 using Microsoft.EntityFrameworkCore;
 
 namespace FilterSharp.DataProcessing;
 
-public class DataQueryProcessor :IDataQueryProcessor
+public class DataQueryProcessor : IDataQueryProcessor
 {
-    public  async Task<(List<T> items, int page, int pageSize, int totalCount)> ApplyDataRequestAsync<T>(IQueryable<T> queryable, DataRequest request) 
+    private readonly IApplyChangesDataRequest _applyChangesDataRequest;
+    private readonly IDataPaginationService _dataPaginationService;
+    private readonly IDataFilterService _filterService;
+
+    public DataQueryProcessor(IApplyChangesDataRequest applyChangesDataRequest,
+        IDataPaginationService dataPaginationService, IDataFilterService filterService)
     {
-        if (request?.Filters?.Count() > 0)
-        {
-            var predicate = ExpressionFilterBuilder<T>.Build(request!.Filters.ToList());
-            queryable = queryable.Where(predicate);
-        }
+        _applyChangesDataRequest = applyChangesDataRequest;
+        _dataPaginationService = dataPaginationService;
+        _filterService = filterService;
+    }
 
-        try
-        {
-            var pageNumber = request?.PageNumber ?? 1;
-            var pageSize = (request?.PageSize ?? 0) == 0 ? 15 : request.PageSize;
-            
-            // Combine the data fetching and count in one query
-            var queryResult = await queryable
-                .Select(item => new { item, totalCount = queryable.Count() })
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
+    public async Task<(List<T> items, int page, int pageSize, int totalCount)> ApplyDataRequestAsync<T>(
+        IQueryable<T> queryable, DataRequest request) where T : class
+    {
+        queryable = _filterService.ApplyFilters(queryable, request.Filters);
 
-            // Extract data and total count from the query result
-            var data = queryResult.Select(x => x.item).ToList();
-            var total = queryResult.FirstOrDefault()?.totalCount ?? 0;
+        var pageNumber = _dataPaginationService.GetPageNumber(request?.PageNumber);
+        var pageSize = _dataPaginationService.GetPageSize(request?.PageSize);
+        queryable = _dataPaginationService.ApplyPagination(queryable, request?.PageNumber, request?.PageSize);
 
-            return (data, pageNumber, pageSize, total);
-        }
 
-        catch (System.Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
+        var data = await queryable.ToListAsync();
+        var total = await queryable.CountAsync();
+
+        return (data, pageNumber, pageSize, total);
     }
 }

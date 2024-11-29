@@ -30,6 +30,7 @@ public class FilterSharpMapperBuilder<T>
         {
             var fieldName = memberExpression.Member.Name;
             var mapper = new FilterSharpMapper (fieldName);
+            mapper.FilterFieldName ??= fieldName;
             configure(mapper);
             SharpMappers.Add(mapper);
         }
@@ -46,7 +47,7 @@ public class FilterSharpMapperBuilder<T>
             var fieldName = memberExpression.Member.Name;
             var mapper = new FilterSharpMapper (fieldName)
             {
-                FilterFieldName = mapperDto.FilterFieldName,
+                FilterFieldName = mapperDto.FilterFieldName ?? fieldName,
                 CanOperatorNames = mapperDto.CanOperatorNames,
                 CanFilter = mapperDto.CanFilter,
                 CanSort = mapperDto.CanSort
