@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using FilterSharp.Attribute;
+using FilterSharp.Dto;
 using FilterSharp.Filter.Operator.ContractFilter;
-using FilterSharp.Input;
 using FilterSharp.StaticNames;
 
 namespace FilterSharp.Filter.Operator;

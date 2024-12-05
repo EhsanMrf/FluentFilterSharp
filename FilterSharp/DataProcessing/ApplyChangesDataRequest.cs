@@ -22,18 +22,18 @@ public class ApplyChangesDataRequest : IApplyChangesDataRequest
         _dataProcessor = dataProcessor;
     }
 
-    public void GetDataChange<T>(DataRequest request) where T : class
+    public void GetDataChange<T>(DataQueryRequest queryRequest) where T : class
     {
         var filterSharpMapper = _mapperCacheManager.GetMapper<T>();
         if (filterSharpMapper == null)
             return;
 
         var builder = _mapperConfigurator.Configure(filterSharpMapper);
-        _dataProcessor.ApplyChanges(request, builder);
+        _dataProcessor.ApplyChanges(queryRequest, builder);
     }
 }
 
 public interface IApplyChangesDataRequest
 {
-    void GetDataChange<T>(DataRequest request) where T : class;
+    void GetDataChange<T>(DataQueryRequest queryRequest) where T : class;
 }

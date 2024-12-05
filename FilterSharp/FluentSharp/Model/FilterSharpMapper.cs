@@ -5,7 +5,7 @@ namespace FilterSharp.FluentSharp.Model;
 
 public sealed class FilterSharpMapper
 {
-    private string Field { get;  set; } = null!;
+    private string Field { get; set; } = null!;
     public bool CanFilter { get; set; } = true;
     public bool CanSort { get; set; } = true;
     public string? FilterFieldName { get; set; }
@@ -13,8 +13,8 @@ public sealed class FilterSharpMapper
 
     private FilterSharpMapper()
     {
-        
     }
+
     internal FilterSharpMapper(string field)
     {
         Field = field;

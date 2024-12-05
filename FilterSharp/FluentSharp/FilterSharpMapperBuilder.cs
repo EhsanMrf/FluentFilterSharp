@@ -12,7 +12,7 @@ public class FilterSharpMapperBuilder<T>
     private bool CanSort { get; set; }
     private string? FilterFieldName { get; set; }
     private IEnumerable<FilterOperator>? CanOperatorNames { get; set; }
-
+    private FilterSharpMapperOnly FilterSharpMapperOnly { get; set; }
     private readonly HashSet<FilterSharpMapper> SharpMappers;
 
     public FilterSharpMapperBuilder()
@@ -20,32 +20,36 @@ public class FilterSharpMapperBuilder<T>
         SharpMappers = new HashSet<FilterSharpMapper>();
     }
 
-    internal IEnumerable<FilterSharpMapper> GetSharpMappers()=>SharpMappers;
+    internal IEnumerable<FilterSharpMapper> GetSharpMappers() => SharpMappers;
+    internal FilterSharpMapperOnly GetSharpMapperOnly() => FilterSharpMapperOnly;
 
-    public virtual void OnField<TProperty>(Expression<Func<T, TProperty>> fieldSelector, Action<FilterSharpMapper> configure)
+    public virtual void OnField<TProperty>(Expression<Func<T, TProperty>> fieldSelector,
+        Action<FilterSharpMapper> configure, bool sharpMapperOnly = false)
     {
         fieldSelector.Guard("Cannot pass null to OnField", nameof(fieldSelector));
 
         if (fieldSelector.Body is MemberExpression memberExpression)
         {
             var fieldName = memberExpression.Member.Name;
-            var mapper = new FilterSharpMapper (fieldName);
+            var mapper = new FilterSharpMapper(fieldName);
             mapper.FilterFieldName ??= fieldName;
             configure(mapper);
             SharpMappers.Add(mapper);
+            FilterSharpMapperOnly = new FilterSharpMapperOnly(sharpMapperOnly);
         }
         else
             throw new ArgumentException("Expression must be a MemberExpression", nameof(fieldSelector));
-    } 
-    
-    public virtual void OnField<TProperty>(Expression<Func<T, TProperty>> fieldSelector, FilterSharpMapperDto mapperDto)
+    }
+
+    public virtual void OnField<TProperty>(Expression<Func<T, TProperty>> fieldSelector, FilterSharpMapperDto mapperDto,
+        bool sharpMapperOnly = false)
     {
         fieldSelector.Guard("Cannot pass null to OnField", nameof(fieldSelector));
 
         if (fieldSelector.Body is MemberExpression memberExpression)
         {
             var fieldName = memberExpression.Member.Name;
-            var mapper = new FilterSharpMapper (fieldName)
+            var mapper = new FilterSharpMapper(fieldName)
             {
                 FilterFieldName = mapperDto.FilterFieldName ?? fieldName,
                 CanOperatorNames = mapperDto.CanOperatorNames,
@@ -53,9 +57,9 @@ public class FilterSharpMapperBuilder<T>
                 CanSort = mapperDto.CanSort
             };
             SharpMappers.Add(mapper);
+            FilterSharpMapperOnly = new FilterSharpMapperOnly(sharpMapperOnly);
         }
         else
             throw new ArgumentException("Expression must be a MemberExpression", nameof(fieldSelector));
     }
-    
 }

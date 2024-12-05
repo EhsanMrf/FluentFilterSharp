@@ -4,7 +4,7 @@ namespace FilterSharp.DataProcessing.DataFilter;
 
 public class DataFilterService : IDataFilterService
 {
-    public IQueryable<T> ApplyFilters<T>(IQueryable<T> queryable, IEnumerable<Input.Filter> filters) where T : class
+    public IQueryable<T> ApplyFilters<T>(IQueryable<T> queryable, IEnumerable<Input.FilterRequest> filters) where T : class
     {
         if (filters?.Any() == true)
         {

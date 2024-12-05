@@ -1,6 +1,7 @@
 using System.Linq.Expressions;
+using FilterSharp.Input;
 
-namespace FilterSharp.Input;
+namespace FilterSharp.Dto;
 
 public class FilterContext
 {

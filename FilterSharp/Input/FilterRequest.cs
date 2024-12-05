@@ -1,31 +1,37 @@
 namespace FilterSharp.Input;
 
-public sealed class Filter
+public sealed class FilterRequest
 {
     /// <summary>
     /// field = column database
     /// </summary>
-    public string Field { get; set; }
+    public string Field { get;  set; } = null!;
     /// <summary>
     /// default : and 
     /// </summary>
-    public string Logic { get; set; }
+    public string? Logic { get; private set; }
 
     /// <summary>
     /// value :  automatic convert to type
     /// </summary>
-    public string Value { get; set; }
+    public string Value { get; private set; } = null!;
+
     /// <summary>
     /// operator : (equals,notEqual,lessThan,greaterThan,greaterThanOrEqual,startsWith,endsWith,contains,notContains,blank,notBlank,inRange)
     /// </summary>
-    public string Operator { get; set; }
+    public string Operator { get; private set; } = null!;
 
-    private Filter() { }
-    public Filter(string? field, string logic, string? value)
+    private FilterRequest() { }
+    private FilterRequest(string field, string @operator, string value)
     {
-        Field = field;
-        Logic = logic;
-        Value = value;
+        Field = field ?? throw new ArgumentNullException(nameof(field));
+        Operator = @operator ?? throw new ArgumentNullException(nameof(@operator));
+        Value = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    public static FilterRequest Create(string field, string @operator, string? value)
+    {
+        return new FilterRequest(field, @operator, value);
     }
     
     

@@ -1,16 +1,22 @@
 namespace FilterSharp.Input;
 
-public sealed class DataRequest
- {
-     public IEnumerable<Filter> Filters { get; set; }
-     public int PageNumber { get; set; }
-     public int PageSize { get; set; }
-     private DataRequest()
-     {
-         
-     }
-     public DataRequest(IEnumerable<Filter> filters)
-     {
-         Filters = filters;
-     }
- }
+public sealed class DataQueryRequest
+{
+    public IEnumerable<FilterRequest>? Filters { get; set; }
+    public IEnumerable<SortingRequest>? Sorting { get; set; }
+    public int? PageNumber { get; set; }
+    public int? PageSize { get; set; }
+
+    private DataQueryRequest()
+    {
+
+    }
+
+    public DataQueryRequest(IEnumerable<FilterRequest> filters, IEnumerable<SortingRequest>? sorting, int pageNumber, int pageSize)
+    {
+        Filters = filters;
+        Sorting = sorting;
+        PageNumber = pageNumber;
+        PageSize = pageSize;
+    }
+}

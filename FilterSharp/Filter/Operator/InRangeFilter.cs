@@ -1,5 +1,6 @@
 using System.Linq.Expressions;
 using FilterSharp.Attribute;
+using FilterSharp.Dto;
 using FilterSharp.Filter.Operator.ContractFilter;
 using FilterSharp.Input;
 using FilterSharp.StaticNames;
@@ -11,7 +12,7 @@ internal class InRangeFilter :IFilterStrategy
 {
     public  Expression Apply(FilterContext context)
     {
-        var rangeValues = context.Filter.Value?.Split(",");
+        var rangeValues = context.FilterRequest.Value?.Split(",");
         if (rangeValues?.Length != 2)
             throw new ArgumentException("Value for inRange must contain exactly two values separated by a comma.");
 
