@@ -13,8 +13,9 @@ namespace FilterSharp.DependencyInjection;
 
 public static class FilterSharpServiceCollectionExtensions
 {
-    public static IServiceCollection AddMyFilterSharpServices(this IServiceCollection services)
+    public static IServiceCollection AddFilterSharp(this IServiceCollection services,Action<PaginationOptions>? configurePagination = null)
     {
+        services.InjectPaginationOption(configurePagination);
         services.AddSingleton<IDataQueryProcessor, DataQueryProcessor>();
 
         services.AddSingleton<IApplyChangesDataRequest, ApplyChangesDataRequest>();
@@ -55,5 +56,13 @@ public static class FilterSharpServiceCollectionExtensions
         
         foreach (var processorType in processorTypes)
             services.AddSingleton(typeof(AbstractBehaviorDataRequestProcessor), processorType);
+    }
+
+    private static void InjectPaginationOption(this IServiceCollection services,Action<PaginationOptions>? configurePagination = null)
+    {
+        var paginationOptions = new PaginationOptions();
+        configurePagination?.Invoke(paginationOptions);
+    
+        services.AddSingleton(paginationOptions);
     }
 }

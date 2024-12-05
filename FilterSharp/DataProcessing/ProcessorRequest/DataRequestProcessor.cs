@@ -44,6 +44,7 @@ public class DataRequestProcessor : IDataRequestProcessor
             {
                 if (filterRequest.Field.Equals(filterSharpMapper.FilterFieldName))
                 {
+                    filterRequest.Field = filterSharpMapper.GetField();
                     if (!filterSharpMapper.CanFilter)
                         throw new InvalidOperationException($"Filtering not allowed");
                 }

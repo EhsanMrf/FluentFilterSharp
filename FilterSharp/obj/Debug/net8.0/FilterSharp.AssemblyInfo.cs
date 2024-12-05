@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FilterSharp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7881fcc1f1cf95e027071f669e4542056c66bc0a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87cfcda4e4a8442861ac433d8907ad1e17c0cef1")]
 [assembly: System.Reflection.AssemblyProductAttribute("FilterSharp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FilterSharp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

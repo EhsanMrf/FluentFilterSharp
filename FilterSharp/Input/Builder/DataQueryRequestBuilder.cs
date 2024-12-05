@@ -40,6 +40,6 @@ public sealed class DataQueryRequestBuilder
 
     public DataQueryRequest Build()
     {
-        return new DataQueryRequest(_filters, _sorting, _pageNumber ?? 0, _pageSize ?? 10);
+        return new DataQueryRequest(_filters, _sorting, _pageNumber ?? 0, _pageSize ?? 15);
     }
 }

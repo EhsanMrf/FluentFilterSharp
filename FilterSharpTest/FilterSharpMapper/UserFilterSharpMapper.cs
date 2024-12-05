@@ -10,8 +10,9 @@ public class UserFilterSharpMapper : AbstractFilterSharpMapper<User>
     {
         builder.OnField(x => x.Name, op =>
         {
+            op.CanSort = false;
             op.CanFilter = true;
-            op.CanOperatorNames = [FilterOperator.NotBlank, FilterOperator.Contains, FilterOperator.Equals];
+            op.CanOperatorNames = [FilterOperator.Contains, FilterOperator.Equals];
         });
     }
 }
