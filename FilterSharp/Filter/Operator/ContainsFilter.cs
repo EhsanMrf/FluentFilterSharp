@@ -12,12 +12,7 @@ internal class ContainsFilter :IFilterStrategy
 {
     public  Expression Apply(FilterContext context)
     {
-        var containsMethod = typeof(string).GetMethod(FilterOperatorNames.Contains, new[] { typeof(string) });
+        var containsMethod = typeof(string).GetMethod(FilterOperatorNames.ContainsToUpper, new[] { typeof(string) });
         return Expression.Call(context.Property, containsMethod!, context.Constant);
-    }
-
-    public Expression Apply(MemberExpression property)
-    {
-        throw new NotImplementedException();
     }
 }

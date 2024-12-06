@@ -29,20 +29,20 @@ public class UserServiceEqualsTest(TestFixture fixture) :UserSharedService(fixtu
     /// <summary>
     /// pattern = ((x.Name == "John") AndAlso (x.Age == 28))
     /// default logic = and
-    /// FilterRequestInstance("Age", FilterOperatorNames.Equals, "28", logic= and  )
+    /// FilterRequestInstance("Name", FilterOperatorNames.Equals, "Jennifer", logic= and  )
     /// </summary>
     [Fact]
-    public async Task GetUserByNameAndAge_WhenEqualsFilterIsUsed()
+    public async Task GetUsers_WhenEqualsAndLogicApplied()
     {
         var queryRequest = RequestBuilder()
             .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.Equals, "John"))
-            .AddFilter(FilterRequestInstance("Age", FilterOperatorNames.Equals, "28"))
+            .AddFilter(FilterRequestInstance("LastName", FilterOperatorNames.Equals, "Smith"))
             .Build();
         var data = await DataProcessor.ApplyQueryRequestAsync(Context.Users, queryRequest);
 
         data.items.Should().NotBeNull();
         data.items.First().Name.Should().Be("John");
-        data.items.First().Age.Should().Be(28);
+        data.items.First().LastName.Should().Be("Smith");
     }
     
     /// <summary>
@@ -50,7 +50,7 @@ public class UserServiceEqualsTest(TestFixture fixture) :UserSharedService(fixtu
     ///  logic set = Or
     /// </summary>
     [Fact]
-    public async Task GetUsers_WhenEqualsFilterIsUsed_And_LogicEquals_Or()
+    public async Task GetUsers_WhenEqualsOrLogicApplied()
     {
         var queryRequest = RequestBuilder()
             .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.Equals, "Jac", FilterLogicalNames.LogicOr))

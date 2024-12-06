@@ -33,14 +33,16 @@ public class TestFixture : IDisposable, IAsyncDisposable
         var firstNames = new List<string>
         {
             "John", "Michael", "David", "James", "William", "Robert", "Joseph", "Charles", "Daniel", "Matthew",
-            "Mary", "Patricia", "Jennifer", "Linda", "Elizabeth", "Susan", "Jessica", "Sarah", "Karen", "Nancy"
+            "Mary", "Patricia", "Jennifer", "Linda", "Elizabeth", "Susan", "Jessica", "Sarah", "Karen", "Nancy",
+            "Marcus Aurelius","Felix Valerian"
         };
 
         // List of last names (Last names list in Latin)
         var lastNames = new List<string>
         {
             "Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor",
-            "Anderson", "Thomas", "Jackson", "White", "Harris", "Martin", "Thompson", "Garcia", "Martinez", "Roberts"
+            "Anderson", "Thomas", "Jackson", "White", "Harris", "Martin", "Thompson", "Garcia", "Martinez", "Roberts",
+            "Severus","Cornelius"
         };
         
         
