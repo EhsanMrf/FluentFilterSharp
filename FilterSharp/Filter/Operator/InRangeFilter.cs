@@ -24,6 +24,4 @@ internal class InRangeFilter :IFilterStrategy
 
         return Expression.AndAlso(greaterThanOrEqual, lessThanOrEqual);
     }
-
-    public Expression Apply(MemberExpression property)=>throw new NotImplementedException("This strategy does not support a value parameter.");
 }

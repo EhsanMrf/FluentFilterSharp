@@ -9,7 +9,7 @@ internal static class ComparisonOperatorHandler
         new Dictionary<string, Func<Expression, Expression, Expression>>(StringComparer.OrdinalIgnoreCase)
         {
             { FilterOperatorNames.Equals, Expression.Equal },
-            { FilterOperatorNames.NotEqual, Expression.NotEqual },
+            { FilterOperatorNames.NotEquals, Expression.NotEqual },
             { FilterOperatorNames.LessThan, Expression.LessThan },
             { FilterOperatorNames.LessThanOrEqual, Expression.LessThanOrEqual },
             { FilterOperatorNames.GreaterThan, Expression.GreaterThan },

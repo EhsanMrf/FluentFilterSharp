@@ -1,5 +1,4 @@
 using FilterSharp.Enum;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace FilterSharp.FluentSharp.Model;
 

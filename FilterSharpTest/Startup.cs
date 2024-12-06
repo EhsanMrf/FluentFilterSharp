@@ -6,7 +6,7 @@ using FilterSharp.DependencyInjection;
 
 namespace FilterSharpTest;
 
-public class Startup
+public abstract  class Startup
 {
     public static ServiceProvider ConfigureServices()
     {
