@@ -12,7 +12,6 @@ public class UserFilterSharpMapper : AbstractFilterSharpMapper<User>
         {
             op.CanSort = false;
             op.CanFilter = true;
-            op.CanOperatorNames = [FilterOperator.Contains, FilterOperator.Equals];
         });
     }
 }
