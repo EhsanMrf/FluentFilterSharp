@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using FilterSharp.Exceptions;
 using FilterSharp.ExtendBehavior;
 using FilterSharp.Extensions;
@@ -10,22 +9,22 @@ namespace FilterSharp.DataProcessing.ProcessorRequest;
 
 public class DataRequestProcessor : IDataRequestProcessor
 {
-    private readonly AbstractBehaviorDataRequestProcessor _abstractBehaviorDataRequestProcessor;
+    private readonly AbstractBehaviorDataRequestProcessor? _abstractBehaviorDataRequestProcessor = null;
 
-    public DataRequestProcessor(AbstractBehaviorDataRequestProcessor abstractBehaviorDataRequestProcessor)
+    public DataRequestProcessor(AbstractBehaviorDataRequestProcessor? abstractBehaviorDataRequestProcessor=null)
     {
         this._abstractBehaviorDataRequestProcessor = abstractBehaviorDataRequestProcessor;
     }
 
-    public void ApplyChanges<T>(DataQueryRequest queryRequest, FilterSharpMapperBuilder<T> builder) where T : class
+    public void ApplyChanges<T>(DataQueryRequest queryRequest, FilterSharpMapperBuilder<T> entity) where T : class
     {
-        var filterSharpMappers = builder.GetSharpMappers().ToList();
+        var filterSharpMappers = entity.GetSharpMappers().ToList();
         if (!filterSharpMappers.Any()) return;
         
         var filters = queryRequest.Filters?.ToList();
         GuardOnNullFilterRequest(filters);
 
-        GuardOnSharpMapperOnly(filters,filterSharpMappers,builder);
+        GuardOnSharpMapperOnly(filters,filterSharpMappers,entity);
         foreach (var filterSharpMapper in filterSharpMappers)
         {
             List<string>? filterOperators = null;
@@ -65,10 +64,10 @@ public class DataRequestProcessor : IDataRequestProcessor
             throw new InvalidOperationException($"FilterRequest empty");
     }
 
-    private void GuardOnSharpMapperOnly<T>(List<FilterRequest>? filterRequests,List<FilterSharpMapper> filterSharps, FilterSharpMapperBuilder<T> builder)
+    private void GuardOnSharpMapperOnly<T>(List<FilterRequest>? filterRequests,List<FilterSharpMapper> filterSharps, FilterSharpMapperBuilder<T> entity)
     {
-        
-        if (!builder.GetSharpMapperOnly().State) return;
+
+        if (!entity.GetSharpMapperOnly().State) return;
 
         var fields = filterRequests!.Select(field=>field.Field).ToList();
         var fieldNames = filterSharps.Select(field=>field.FilterFieldName);
@@ -76,8 +75,9 @@ public class DataRequestProcessor : IDataRequestProcessor
         var invalidFields = fields.Except(fieldNames).Any();
 
         if (!invalidFields) return;
-        
-        _abstractBehaviorDataRequestProcessor.ExceptionHandler(filterRequests!, filterSharps, builder);
+
+        _abstractBehaviorDataRequestProcessor?.ExceptionHandler(filterRequests!, filterSharps, entity);
+
         throw new SharpMapperOnlyException($"Invalid fields detected: {string.Join(", ", invalidFields)}");
     }
 }

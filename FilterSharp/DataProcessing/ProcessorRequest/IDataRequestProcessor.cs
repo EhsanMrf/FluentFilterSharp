@@ -5,5 +5,5 @@ namespace FilterSharp.DataProcessing.ProcessorRequest;
 
 public interface IDataRequestProcessor
 {
-    void ApplyChanges<T>(DataQueryRequest queryRequest, FilterSharpMapperBuilder<T> builder) where T : class;
+    void ApplyChanges<T>(DataQueryRequest queryRequest, FilterSharpMapperBuilder<T> entity) where T : class;
 }

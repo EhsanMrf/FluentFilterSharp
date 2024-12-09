@@ -8,10 +8,11 @@ public class UserFilterSharpMapper : AbstractFilterSharpMapper<User>
 {
     public override void Configuration(FilterSharpMapperBuilder<User> builder)
     {
-        builder.OnField(x => x.Name, op =>
-        {
-            op.CanSort = false;
-            op.CanFilter = true;
-        });
+        builder.OnField(x => x.Name)
+            .DisableSort();
+        
+        builder.OnField(x => x.Age)
+            .DisableFilter()
+            .CanBeOperators([FilterOperator.Blank]);
     }
 }
