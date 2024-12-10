@@ -6,7 +6,6 @@ namespace FilterSharp.FluentSharp;
 
 public sealed class FilterSharpMapperBuilder<T>
 { 
-    private FilterSharpMapperOnly FilterSharpMapperOnly { get; set; } = null!;
     private readonly HashSet<FilterSharpMapper> _sharpMappers;
 
     public FilterSharpMapperBuilder()
@@ -38,7 +37,6 @@ public sealed class FilterSharpMapperBuilder<T>
     
     
     internal IEnumerable<FilterSharpMapper> GetSharpMappers() => _sharpMappers;
-    internal FilterSharpMapperOnly GetSharpMapperOnly() => FilterSharpMapperOnly;
 
     /// <summary>
     /// Configures a field for filtering and sorting in the FilterSharpMapperBuilder.
@@ -75,7 +73,6 @@ public sealed class FilterSharpMapperBuilder<T>
             mapper.FilterFieldName ??= fieldName;
             configure(mapper);
             _sharpMappers.Add(mapper);
-            FilterSharpMapperOnly = new FilterSharpMapperOnly(sharpMapperOnly);
         }
         else
             throw new ArgumentException("Expression must be a MemberExpression", nameof(fieldSelector));

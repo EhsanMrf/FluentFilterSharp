@@ -10,9 +10,5 @@ public class UserFilterSharpMapper : AbstractFilterSharpMapper<User>
     {
         builder.OnField(x => x.Name)
             .DisableSort();
-        
-        builder.OnField(x => x.Age)
-            .DisableFilter()
-            .CanBeOperators([FilterOperator.Blank]);
     }
 }

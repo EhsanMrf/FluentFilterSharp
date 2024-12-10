@@ -5,6 +5,7 @@ using FilterSharp.DataProcessing.Mapp;
 using FilterSharp.DataProcessing.Pagination;
 using FilterSharp.DataProcessing.ProcessorRequest;
 using FilterSharp.DataProcessing.Sorting;
+using FilterSharp.DependencyInjection.Locator;
 using FilterSharp.ExtendBehavior;
 using FilterSharp.FluentSharp;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +18,8 @@ public static class FilterSharpServiceCollectionExtensions
     {
         services.InjectPaginationOption(configurePagination);
         services.AddSingleton<IDataQueryProcessor, DataQueryProcessor>();
-
+        
+        
         services.AddSingleton<IApplyChangesDataRequest, ApplyChangesDataRequest>();
         services.AddSingleton<IDataPaginationService, DataPaginationService>();
         services.AddSingleton<IDataFilterService, DataFilterService>();
@@ -26,10 +28,12 @@ public static class FilterSharpServiceCollectionExtensions
 
         services.AddSingleton<IMapperCacheManager, MapperCacheManager>();
         services.AddSingleton<IMapperConfigurator, MapperConfigurator>();
-        services.AddSingleton<IDataRequestProcessor, DataRequestProcessor>();
+        services.AddScoped<IDataRequestProcessor, DataRequestProcessor>();
         
         services.InjectFilterSharpMappers();
         services.InjectExtendBehaviorException();
+        
+        ServiceLocator.DataQueryProcessor= services.BuildServiceProvider().GetRequiredService<IDataQueryProcessor>()!;
 
         return services;
     }

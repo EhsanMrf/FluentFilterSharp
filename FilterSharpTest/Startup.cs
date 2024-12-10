@@ -12,7 +12,10 @@ public abstract  class Startup
     {
         var serviceCollection = new ServiceCollection();
 
-        serviceCollection.AddFilterSharp(options => { options.DefaultPageSize = 10; });
+        serviceCollection.AddFilterSharp(options =>
+        {
+            options.DefaultPageSize = 10;
+        });
 
         serviceCollection.AddDbContext<AppDbContext>(options =>
             options.UseSqlite("DataSource=:memory:"));

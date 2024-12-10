@@ -1,4 +1,3 @@
-using FilterSharp.DataProcessing.ProcessorRequest;
 using FilterSharp.FluentSharp;
 using FilterSharp.FluentSharp.Model;
 using FilterSharp.Input;
@@ -9,6 +8,5 @@ public class BehaviorDataRequestProcessor :AbstractBehaviorDataRequestProcessor
 {
     public override void ExceptionHandler<T>(List<FilterRequest> filterRequests, List<FilterSharpMapper> filterSharps, FilterSharpMapperBuilder<T> entity)
     {
-        throw new NotImplementedException("Mrf Error");
     }
 }

@@ -29,6 +29,8 @@ internal static class ExpressionFilterBuilder<T>
                 : LogicalOperatorHandler.GetOperator(filterLogicalName!)(result, filterExpression);
             
             filterLogicalName = filter.Logic;
+            
+            SetSubFilters(ref result,filter.Filters,filterLogicalName!,parameter);
         }
 
         return result!;
@@ -37,14 +39,33 @@ internal static class ExpressionFilterBuilder<T>
     private static Expression BuildFilterExpression(FilterRequest filterRequest, ParameterExpression parameter)
     {
         var property = Expression.Property(parameter, filterRequest.Field);
-        var value = ValueConverter.ConvertValue(filterRequest.Value, property.Type);
-        var constant = Expression.Constant(value, property.Type);
-
+        var constants = BuildFilterExpressionHandler.BuildFilterExpression(property,filterRequest);
         var strategy = FilterStrategyRegistry.GetStrategy(filterRequest.Operator!);
         if (strategy != null)
-            return strategy.Apply(new FilterContext(property, constant: constant, filterRequest));
+            return strategy.Apply(new FilterContext(property, constants, filterRequest));
 
         var comparisonOperator = ComparisonOperatorHandler.GetOperator(filterRequest.Operator!);
-        return comparisonOperator(property, constant);
+        return comparisonOperator(property, constants.First());
+    }
+    
+    
+    private static void SetSubFilters(ref Expression result,IEnumerable<FilterRequest>? filters,string logic, ParameterExpression parameter)
+    {
+        if (filters==null) return;
+        
+        Expression? subFilterResult = null;
+        var filterLogicalName = FilterLogicalNames.LogicAnd;
+
+        foreach (var filter in filters)
+        {
+            var subFilterExpression = BuildFilterExpression(filter, parameter);
+
+            subFilterResult = subFilterResult == null
+                ? subFilterExpression
+                : LogicalOperatorHandler.GetOperator(filterLogicalName!)(subFilterResult, subFilterExpression);
+           
+            filterLogicalName = filter.Logic;
+        }
+        result = LogicalOperatorHandler.GetOperator(logic)(result, subFilterResult!);
     }
 }

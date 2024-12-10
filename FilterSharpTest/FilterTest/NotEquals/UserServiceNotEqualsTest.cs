@@ -1,5 +1,6 @@
 using FilterSharp.StaticNames;
 using FilterSharpTest.Fixture;
+using FilterSharpTest.Model;
 using FilterSharpTest.Shared;
 using FluentAssertions;
 
@@ -16,10 +17,10 @@ public class UserServiceNotEqualsTest(TestFixture testFixture):UserSharedService
         var queryRequest = RequestBuilder()
             .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.NotEquals, "John"))
             .Build();
-        var data = await DataProcessor.ApplyQueryRequestAsync(Context.Users, queryRequest);
+        var data = await Context.Users.ApplyQueryResult(queryRequest);
 
-        data.items.Should().NotBeNull();
-        data.items.First().Name.Should().NotBe("John");
+        data.Items.Should().NotBeNull();
+        data.Items.As<List<User>>().First().Name.Should().NotBe("John");
     }  
     
     /// <summary>
@@ -34,11 +35,11 @@ public class UserServiceNotEqualsTest(TestFixture testFixture):UserSharedService
             .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.NotEquals, "John"))
             .AddFilter(FilterRequestInstance("LastName", FilterOperatorNames.NotEquals, "Smith"))
             .Build();
-        var data = await DataProcessor.ApplyQueryRequestAsync(Context.Users, queryRequest);
+        var data = await Context.Users.ApplyQueryResult(queryRequest);
 
-        data.items.Should().NotBeNull();
-        data.items.First().Name.Should().NotBe("John");
-        data.items.First().LastName.Should().NotBe("Smith");
+        data.Items.As<List<User>>().Should().NotBeNull();
+        data.Items.As<List<User>>().First().Name.Should().NotBe("John");
+        data.Items.As<List<User>>().First().LastName.Should().NotBe("Smith");
     }
     
     /// <summary>

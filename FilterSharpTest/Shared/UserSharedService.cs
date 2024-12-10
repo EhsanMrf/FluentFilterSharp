@@ -21,9 +21,9 @@ public abstract class UserSharedService : IClassFixture<TestFixture>
 
     internal DataQueryRequestBuilder RequestBuilder() => new();
 
-    internal FilterRequest FilterRequestInstance(string field, string @operator, string value,string? logic=null)
+    internal FilterRequest FilterRequestInstance(string field, string @operator, string value,string? logic=null,IEnumerable<FilterRequest>? filters=null)
     {
-        return logic != null ? FilterRequest.Create(field, @operator, value,logic) 
+        return logic != null ? FilterRequest.Create(field, @operator, value,logic,filters) 
             : FilterRequest.Create(field, @operator, value);
     }
 }

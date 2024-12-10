@@ -1,5 +1,6 @@
 using FilterSharp.StaticNames;
 using FilterSharpTest.Fixture;
+using FilterSharpTest.Model;
 using FilterSharpTest.Shared;
 using FluentAssertions;
 
@@ -20,10 +21,11 @@ public class UserServiceEqualsTest(TestFixture fixture) :UserSharedService(fixtu
         var queryRequest = RequestBuilder()
             .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.Equals, "John"))
             .Build();
-        var data = await DataProcessor.ApplyQueryRequestAsync(Context.Users, queryRequest);
+        var data = await Context.Users.ApplyQueryResult(queryRequest);
 
-        data.items.Should().NotBeNull();
-        data.items.First().Name.Should().Be("John");
+
+        data.Items.Should().NotBeNull();
+        data.Items.As<List<User>>().First().Name.Should().Be("John");
     }  
     
     /// <summary>
@@ -38,11 +40,11 @@ public class UserServiceEqualsTest(TestFixture fixture) :UserSharedService(fixtu
             .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.Equals, "John"))
             .AddFilter(FilterRequestInstance("LastName", FilterOperatorNames.Equals, "Smith"))
             .Build();
-        var data = await DataProcessor.ApplyQueryRequestAsync(Context.Users, queryRequest);
+        var data = await Context.Users.ApplyQueryResult(queryRequest);
 
-        data.items.Should().NotBeNull();
-        data.items.First().Name.Should().Be("John");
-        data.items.First().LastName.Should().Be("Smith");
+        data.Items.Should().NotBeNull();
+        data.Items.As<List<User>>().First().Name.Should().Be("John");
+        data.Items.As<List<User>>().First().LastName.Should().Be("Smith");
     }
     
     /// <summary>
@@ -56,10 +58,10 @@ public class UserServiceEqualsTest(TestFixture fixture) :UserSharedService(fixtu
             .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.Equals, "Jac", FilterLogicalNames.LogicOr))
             .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.Equals, "Jennifer"))
             .Build();
-        var data = await DataProcessor.ApplyQueryRequestAsync(Context.Users, queryRequest);
+        var data = await Context.Users.ApplyQueryResult(queryRequest);
 
-        data.items.Should().NotBeNull();
-        data.items.First().Name.Should().Be("Jennifer");
-        data.totalCount.Should().BeGreaterThan(0);
+        data.Items.Should().NotBeNull();
+        data.Items.As<List<User>>().First().Name.Should().Be("Jennifer");
+        data.TotalCount.Should().BeGreaterThan(0);
     }
 }

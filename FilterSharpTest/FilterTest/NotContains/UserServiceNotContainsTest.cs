@@ -17,10 +17,10 @@ public class UserServiceNotNotContainsTest(TestFixture testFixture):UserSharedSe
         var queryRequest = RequestBuilder()
             .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.NotContains, "Aurelius"))
             .Build();
-        var data = await DataProcessor.ApplyQueryRequestAsync(Context.Users, queryRequest);
+        var data = await Context.Users.ApplyQueryResult(queryRequest);
 
-        data.items.Should().NotBeNull();
-        data.totalCount.Should().BeGreaterThan(0);
+        data.Items.Should().NotBeNull();
+        data.TotalCount.Should().BeGreaterThan(0);
     }
     
     /// <summary>
@@ -35,9 +35,9 @@ public class UserServiceNotNotContainsTest(TestFixture testFixture):UserSharedSe
             .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.NotContains, "Aurelius"))
             .AddFilter(FilterRequestInstance("LastName", FilterOperatorNames.Equals, "Cornelius"))
             .Build();
-        var data = await DataProcessor.ApplyQueryRequestAsync(Context.Users, queryRequest);
+        var data = await Context.Users.ApplyQueryResult(queryRequest);
 
-        data.items.Should().NotBeNull();
-        data.totalCount.Should().BeGreaterThan(0);
+        data.Items.Should().NotBeNull();
+        data.TotalCount.Should().BeGreaterThan(0);
     }
 }

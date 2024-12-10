@@ -10,6 +10,9 @@ public sealed class MapperCacheManager :IMapperCacheManager
     {
         
     }
+    
+    
+    
     public MapperCacheManager(IServiceProvider serviceProvider)
     {
         var assembly = AppDomain.CurrentDomain.GetAssemblies();

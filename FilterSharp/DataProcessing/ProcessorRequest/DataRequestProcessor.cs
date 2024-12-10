@@ -24,7 +24,7 @@ public class DataRequestProcessor : IDataRequestProcessor
         var filters = queryRequest.Filters?.ToList();
         GuardOnNullFilterRequest(filters);
 
-        GuardOnSharpMapperOnly(filters,filterSharpMappers,entity);
+        //GuardOnSharpMapperOnly(filters,filterSharpMappers,entity);
         foreach (var filterSharpMapper in filterSharpMappers)
         {
             List<string>? filterOperators = null;
@@ -66,9 +66,6 @@ public class DataRequestProcessor : IDataRequestProcessor
 
     private void GuardOnSharpMapperOnly<T>(List<FilterRequest>? filterRequests,List<FilterSharpMapper> filterSharps, FilterSharpMapperBuilder<T> entity)
     {
-
-        if (!entity.GetSharpMapperOnly().State) return;
-
         var fields = filterRequests!.Select(field=>field.Field).ToList();
         var fieldNames = filterSharps.Select(field=>field.FilterFieldName);
         

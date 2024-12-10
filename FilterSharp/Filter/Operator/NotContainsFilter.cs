@@ -12,7 +12,7 @@ internal class NotContainsFilter :IFilterStrategy
     public Expression Apply(FilterContext context)
     {
         var containsMethod = typeof(string).GetMethod(FilterOperatorNames.ContainsToUpper, new[] { typeof(string) });
-        var containsExpression = Expression.Call(context.Property, containsMethod!, context.Constant);
+        var containsExpression = Expression.Call(context.Property, containsMethod!, context.Constant!.First());
         return Expression.Not(containsExpression);
     }
 }

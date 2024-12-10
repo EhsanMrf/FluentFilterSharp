@@ -12,7 +12,7 @@ public sealed class FilterRequest
     /// <summary>
     /// default : and 
     /// </summary>
-    public string? Logic { get; private set; } = FilterLogicalNames.LogicAnd;
+    public string? Logic { get;  private set; } = FilterLogicalNames.LogicAnd;
 
     /// <summary>
     /// value :  automatic convert to type
@@ -24,30 +24,33 @@ public sealed class FilterRequest
     /// </summary>
     public string Operator { get; private set; } = null!;
 
+    public IEnumerable<FilterRequest>? Filters { get; private set; }
+
     private FilterRequest() { }
-    private FilterRequest(string field, string @operator, string value)
+    private FilterRequest(string field, string @operator, string value,IEnumerable<FilterRequest>? filters=null)
     {
         Field = field ?? throw new ArgumentNullException(nameof(field));
         Operator = @operator ?? throw new ArgumentNullException(nameof(@operator));
         Value = value ?? throw new ArgumentNullException(nameof(value));
     } 
     
-    private FilterRequest(string field, string @operator, string value,string logic)
+    private FilterRequest(string field, string @operator, string value,string logic,IEnumerable<FilterRequest>? filters=null)
     {
         Field = field ?? throw new ArgumentNullException(nameof(field));
         Operator = @operator ?? throw new ArgumentNullException(nameof(@operator));
         Value = value ?? throw new ArgumentNullException(nameof(value));
         Logic = logic;
+        Filters = filters;
     }
 
-    public static FilterRequest Create(string field, string @operator, string value)
+    public static FilterRequest Create(string field, string @operator, string value,IEnumerable<FilterRequest>? filters=null)
     {
-        return new FilterRequest(field, @operator, value);
+        return new FilterRequest(field, @operator, value,filters);
     }
     
-    public static FilterRequest Create(string field, string @operator, string value,string logic)
+    public static FilterRequest Create(string field, string @operator, string value,string logic,IEnumerable<FilterRequest>? filters=null)
     {
-        return new FilterRequest(field, @operator, value,logic);
+        return new FilterRequest(field, @operator, value,logic,filters);
     }
     
     

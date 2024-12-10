@@ -1,13 +1,12 @@
 using FilterSharp.DataProcessing.DataFilter;
 using FilterSharp.DataProcessing.Pagination;
 using FilterSharp.DataProcessing.Sorting;
-using FilterSharp.DependencyInjection;
 using FilterSharp.Input;
 using Microsoft.EntityFrameworkCore;
 
 namespace FilterSharp.DataProcessing;
 
-public class DataQueryProcessor : IDataQueryProcessor
+public sealed class DataQueryProcessor : IDataQueryProcessor
 {
     private readonly IApplyChangesDataRequest _applyChangesDataRequest = null!;
     private readonly IDataPaginationService _dataPaginationService = null!;
@@ -25,7 +24,7 @@ public class DataQueryProcessor : IDataQueryProcessor
         _sortingService = sortingService;
     }
 
-    public virtual async Task<(List<T> items, int page, int pageSize, int totalCount)> ApplyQueryRequestAsync<T>(
+    public async Task<(List<T> items, int page, int pageSize, int totalCount)> ApplyQueryRequestAsync<T>(
         IQueryable<T> queryable, DataQueryRequest queryRequest) where T : class
     {
         GetDataChange<T>(queryRequest);

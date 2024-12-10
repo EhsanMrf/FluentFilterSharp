@@ -5,11 +5,11 @@ using FilterSharp.Input;
 
 namespace FilterSharp.DataProcessing;
 
-public class ApplyChangesDataRequest : IApplyChangesDataRequest
+public sealed class ApplyChangesDataRequest : IApplyChangesDataRequest
 {
-    private readonly IMapperCacheManager _mapperCacheManager;
-    private readonly IMapperConfigurator _mapperConfigurator;
-    private readonly IDataRequestProcessor _dataProcessor;
+    private readonly IMapperCacheManager _mapperCacheManager =null!;
+    private readonly IMapperConfigurator _mapperConfigurator=null!;
+    private readonly IDataRequestProcessor _dataProcessor=null!;
 
     private ApplyChangesDataRequest()
     {
