@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "E:\\FilterSharp\\FilterSharp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6CC95544-115A-4667-A2B8-507DA43AD672}|FilterSharpTest\\FilterSharpTest.csproj|e:\\filtersharp\\filtersharp\\filtersharptest\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6CC95544-115A-4667-A2B8-507DA43AD672}|FilterSharpTest\\FilterSharpTest.csproj|solutionrelative:filtersharptest\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF657596-6A8F-4AF5-978A-3AF6C2C70136}|FilterSharp\\FilterSharp.csproj|e:\\filtersharp\\filtersharp\\filtersharp\\filtersharp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{CF657596-6A8F-4AF5-978A-3AF6C2C70136}|FilterSharp\\FilterSharp.csproj|solutionrelative:filtersharp\\filtersharp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -55,14 +55,13 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Startup.cs",
-              "DocumentMoniker": "E:\\FilterSharp\\FilterSharp\\FilterSharpTest\\Startup.cs",
-              "RelativeDocumentMoniker": "FilterSharpTest\\Startup.cs",
-              "ToolTip": "E:\\FilterSharp\\FilterSharp\\FilterSharpTest\\Startup.cs",
-              "RelativeToolTip": "FilterSharpTest\\Startup.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T19:33:30.217Z",
+              "Title": "FilterSharp",
+              "DocumentMoniker": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\FilterSharp.csproj",
+              "RelativeDocumentMoniker": "FilterSharp\\FilterSharp.csproj",
+              "ToolTip": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\FilterSharp.csproj",
+              "RelativeToolTip": "FilterSharp\\FilterSharp.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-16T19:38:34.336Z",
               "EditorCaption": ""
             }
           ]
