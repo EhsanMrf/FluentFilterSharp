@@ -1,0 +1,46 @@
+using FilterSharp.Attribute;
+using FilterSharp.DataProcessing.Mapp;
+using FilterSharp.FluentSharp;
+using FilterSharp.FluentSharp.Model;
+
+namespace FilterSharp.DataProcessing.ChangeRequest;
+
+public sealed class FilterSharpMapperProvider(IMapperConfigurator mapperConfigurator) :IFilterSharpMapperProvider
+{
+    public IEnumerable<FilterSharpMapper>? GetListSharpMapper<T>(AbstractFilterSharpMapper<T>? sharpMapper) where T : class
+    { 
+        return GetListBySharpMappers(sharpMapper) ?? GetListByAttribute<T>();
+    }
+    
+    private IEnumerable<FilterSharpMapper>? GetListBySharpMappers<T>(AbstractFilterSharpMapper<T>? sharpMapper)
+        where T : class
+    {
+        if (sharpMapper == null)
+            return null;
+
+        var builder = mapperConfigurator.Configure(sharpMapper);
+        return builder.GetSharpMappers();
+    }
+
+    private IEnumerable<FilterSharpMapper>? GetListByAttribute<T>()
+    {
+        var properties = typeof(T).GetProperties();
+        var result = new List<FilterSharpMapper>();
+
+        foreach (var property in properties)
+        {
+            var attribute = property.GetCustomAttributes(typeof(FilterSharpAttribute), false)
+                .FirstOrDefault() as FilterSharpAttribute;
+
+            if (attribute != null)
+            {
+                var mapper = new FilterSharpMapper(property.Name);
+                mapper.SetData(attribute.CanSort, attribute.CanSort, attribute.FilterFieldName,
+                    attribute.AllowedOperators);
+                result.Add(mapper);
+            }
+        }
+
+        return result.Count != 0 ? result : null;
+    }
+}

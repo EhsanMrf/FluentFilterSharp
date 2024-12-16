@@ -3,7 +3,7 @@ using FilterSharpTest.Fixture;
 using FilterSharpTest.Shared;
 using FluentAssertions;
 
-namespace FilterSharpTest.FilterTest.Contains;
+namespace FilterSharpTest.Tests.FilterTest.Contains;
 
 public class UserServiceContainsTest(TestFixture fixture) : UserSharedService(fixture)
 {
