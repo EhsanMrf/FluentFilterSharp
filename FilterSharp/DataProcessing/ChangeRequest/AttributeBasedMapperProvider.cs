@@ -5,7 +5,7 @@ using FilterSharp.FluentSharp.Model;
 
 namespace FilterSharp.DataProcessing.ChangeRequest;
 
-public sealed class FilterSharpMapperProvider(IMapperConfigurator mapperConfigurator) :IFilterSharpMapperProvider
+public sealed class AttributeBasedMapperProvider(IMapperConfigurator mapperConfigurator) :IAttributeBasedMapperProvider
 {
     public IEnumerable<FilterSharpMapper>? GetListSharpMapper<T>(AbstractFilterSharpMapper<T>? sharpMapper) where T : class
     { 

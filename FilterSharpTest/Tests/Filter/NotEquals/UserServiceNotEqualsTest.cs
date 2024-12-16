@@ -4,7 +4,7 @@ using FilterSharpTest.Model;
 using FilterSharpTest.Shared;
 using FluentAssertions;
 
-namespace FilterSharpTest.FilterTest.NotEquals;
+namespace FilterSharpTest.Tests.Filter.NotEquals;
 
 public class UserServiceNotEqualsTest(TestFixture testFixture):UserSharedService(testFixture)
 {

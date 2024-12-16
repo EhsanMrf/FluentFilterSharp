@@ -26,4 +26,6 @@ public abstract class UserSharedService : IClassFixture<TestFixture>
         return logic != null ? FilterRequest.Create(field, @operator, value,logic,filters) 
             : FilterRequest.Create(field, @operator, value);
     }
+
+
 }

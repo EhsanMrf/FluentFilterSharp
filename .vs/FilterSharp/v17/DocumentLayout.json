@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "E:\\FilterSharp\\FilterSharp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6CC95544-115A-4667-A2B8-507DA43AD672}|FilterSharpTest\\FilterSharpTest.csproj|e:\\filtersharp\\filtersharp\\filtersharptest\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6CC95544-115A-4667-A2B8-507DA43AD672}|FilterSharpTest\\FilterSharpTest.csproj|solutionrelative:filtersharptest\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF657596-6A8F-4AF5-978A-3AF6C2C70136}|FilterSharp\\FilterSharp.csproj|e:\\filtersharp\\filtersharp\\filtersharp\\dataprocessing\\idataqueryprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF657596-6A8F-4AF5-978A-3AF6C2C70136}|FilterSharp\\FilterSharp.csproj|solutionrelative:filtersharp\\dataprocessing\\idataqueryprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6CC95544-115A-4667-A2B8-507DA43AD672}|FilterSharpTest\\FilterSharpTest.csproj|e:\\filtersharp\\filtersharp\\filtersharptest\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CC95544-115A-4667-A2B8-507DA43AD672}|FilterSharpTest\\FilterSharpTest.csproj|solutionrelative:filtersharptest\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -59,27 +55,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UnitTest1.cs",
-              "DocumentMoniker": "E:\\FilterSharp\\FilterSharp\\FilterSharpTest\\UnitTest1.cs",
-              "RelativeDocumentMoniker": "FilterSharpTest\\UnitTest1.cs",
-              "ToolTip": "E:\\FilterSharp\\FilterSharp\\FilterSharpTest\\UnitTest1.cs",
-              "RelativeToolTip": "FilterSharpTest\\UnitTest1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Title": "Startup.cs",
+              "DocumentMoniker": "E:\\FilterSharp\\FilterSharp\\FilterSharpTest\\Startup.cs",
+              "RelativeDocumentMoniker": "FilterSharpTest\\Startup.cs",
+              "ToolTip": "E:\\FilterSharp\\FilterSharp\\FilterSharpTest\\Startup.cs",
+              "RelativeToolTip": "FilterSharpTest\\Startup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T10:07:12.942Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IDataQueryProcessor.cs",
-              "DocumentMoniker": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\DataProcessing\\IDataQueryProcessor.cs",
-              "RelativeDocumentMoniker": "FilterSharp\\DataProcessing\\IDataQueryProcessor.cs",
-              "ToolTip": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\DataProcessing\\IDataQueryProcessor.cs",
-              "RelativeToolTip": "FilterSharp\\DataProcessing\\IDataQueryProcessor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T10:14:00.711Z",
+              "WhenOpened": "2024-12-16T19:33:30.217Z",
               "EditorCaption": ""
             }
           ]

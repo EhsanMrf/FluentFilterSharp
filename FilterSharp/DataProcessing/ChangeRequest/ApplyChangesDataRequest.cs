@@ -1,82 +1,36 @@
-using FilterSharp.Attribute;
-using FilterSharp.Caching;
-using FilterSharp.DataProcessing.Mapp;
 using FilterSharp.DataProcessing.ProcessorRequest;
 using FilterSharp.FluentSharp;
-using FilterSharp.FluentSharp.Model;
 using FilterSharp.Input;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace FilterSharp.DataProcessing;
+namespace FilterSharp.DataProcessing.ChangeRequest;
 
 public sealed class ApplyChangesDataRequest : IApplyChangesDataRequest
 {
-    private readonly IMapperCacheManager _mapperCacheManager = null!;
-    private readonly IMapperConfigurator _mapperConfigurator = null!;
-    private readonly IDataRequestProcessor _dataProcessor = null!;
+    private readonly IServiceProvider _serviceProvider = null!;
 
     private ApplyChangesDataRequest()
     {
     }
 
-    public ApplyChangesDataRequest(IMapperCacheManager mapperCacheManager, IMapperConfigurator mapperConfigurator,
-        IDataRequestProcessor dataProcessor)
+    public ApplyChangesDataRequest(IServiceProvider serviceProvider)
     {
-        _mapperCacheManager = mapperCacheManager;
-        _mapperConfigurator = mapperConfigurator;
-        _dataProcessor = dataProcessor;
+        _serviceProvider = serviceProvider;
     }
+
 
     public void GetDataChange<T>(DataQueryRequest? queryRequest) where T : class
     {
         if (queryRequest == null) return;
 
-        var filterSharpMapper = _mapperCacheManager.GetMapper<T>();
-        if (filterSharpMapper == null)
+        var mapper = _serviceProvider.GetService(typeof(AbstractFilterSharpMapper<T>)) as AbstractFilterSharpMapper<T>;
+
+        var attributeBasedMapperProvider = _serviceProvider.GetRequiredService<IAttributeBasedMapperProvider>();
+        var filterSharpMappers = attributeBasedMapperProvider.GetListSharpMapper(mapper);
+        if (filterSharpMappers == null)
             return;
 
-        var builder = _mapperConfigurator.Configure(filterSharpMapper);
-
-        _dataProcessor.ApplyChanges(queryRequest, null);
-    }
-}
-
-public sealed class ApplyChangesDataRequestHandler(IMapperConfigurator mapperConfigurator)
-{
-    public IEnumerable<FilterSharpMapper>? GetListSharpMapper<T>(AbstractFilterSharpMapper<T>? sharpMapper) where T : class
-    { 
-        return GetListBySharpMappers(sharpMapper) ?? GetListByAttribute<T>();
-    }
-
-
-    private IEnumerable<FilterSharpMapper>? GetListBySharpMappers<T>(AbstractFilterSharpMapper<T>? sharpMapper)
-        where T : class
-    {
-        if (sharpMapper == null)
-            return null;
-
-        var builder = mapperConfigurator.Configure(sharpMapper);
-        return builder.GetSharpMappers();
-    }
-
-    private IEnumerable<FilterSharpMapper>? GetListByAttribute<T>()
-    {
-        var properties = typeof(T).GetProperties();
-        var result = new List<FilterSharpMapper>();
-
-        foreach (var property in properties)
-        {
-            var attribute = property.GetCustomAttributes(typeof(FilterSharpAttribute), false)
-                .FirstOrDefault() as FilterSharpAttribute;
-
-            if (attribute != null)
-            {
-                var mapper = new FilterSharpMapper(property.Name);
-                mapper.SetData(attribute.IsDisableSort, attribute.IsDisableSort, attribute.FilterFieldName,
-                    attribute.AllowedOperators);
-                result.Add(mapper);
-            }
-        }
-
-        return result.Count != 0 ? result : null;
+        var dataRequestProcessor = _serviceProvider.GetRequiredService<IDataRequestProcessor>();
+        dataRequestProcessor.ApplyChanges(queryRequest, filterSharpMappers!.ToList());
     }
 }

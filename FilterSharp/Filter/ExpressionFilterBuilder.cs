@@ -27,9 +27,9 @@ internal static class ExpressionFilterBuilder<T>
             result = result == null
                 ? filterExpression
                 : LogicalOperatorHandler.GetOperator(filterLogicalName!)(result, filterExpression);
-            
+
             filterLogicalName = filter.Logic;
-            
+
             SetSubFilters(ref result,filter.Filters,filterLogicalName!,parameter);
         }
 
@@ -47,8 +47,7 @@ internal static class ExpressionFilterBuilder<T>
         var comparisonOperator = ComparisonOperatorHandler.GetOperator(filterRequest.Operator!);
         return comparisonOperator(property, constants.First());
     }
-    
-    
+
     private static void SetSubFilters(ref Expression result,IEnumerable<FilterRequest>? filters,string logic, ParameterExpression parameter)
     {
         if (filters==null) return;

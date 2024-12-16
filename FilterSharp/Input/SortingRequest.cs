@@ -2,8 +2,8 @@ namespace FilterSharp.Input;
 
 public sealed class SortingRequest
 {
-    public string FiledName { get; set; } = null!;
-    public bool Ascending { get;  set; }
+    internal string FiledName { get; } = null!;
+    internal bool Ascending { get; }
 
     private SortingRequest()
     {
@@ -13,5 +13,19 @@ public sealed class SortingRequest
     {
         FiledName = filedName;
         Ascending = ascending;
+    }
+    
+    public override bool Equals(object? obj)
+    {
+        if (obj is SortingRequest other)
+        {
+            return FiledName == other.FiledName && Ascending == other.Ascending;
+        }
+        return false;    
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(StringComparer.Ordinal.GetHashCode(FiledName), Ascending);
     }
 }

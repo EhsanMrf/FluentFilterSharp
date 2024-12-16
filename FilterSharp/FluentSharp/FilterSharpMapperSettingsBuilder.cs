@@ -29,9 +29,9 @@ public sealed class FilterSharpMapperSettingsBuilder
         return this;
     }
 
-    public FilterSharpMapperSettingsBuilder CanBeOperators(FilterOperator[] filterOperators)
+    public FilterSharpMapperSettingsBuilder AllowedOperators(FilterOperator[] filterOperators)
     {
-        FilterSharpMapper.CanOperatorNames= [..filterOperators];
+        FilterSharpMapper.AllowedOperators= [..filterOperators];
         return this;
     }
 }

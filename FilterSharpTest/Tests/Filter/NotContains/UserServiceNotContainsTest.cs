@@ -3,41 +3,42 @@ using FilterSharpTest.Fixture;
 using FilterSharpTest.Shared;
 using FluentAssertions;
 
-namespace FilterSharpTest.FilterTest.NotContains;
-
-public class UserServiceNotNotContainsTest(TestFixture testFixture):UserSharedService(testFixture)
+namespace FilterSharpTest.Tests.FilterTest.NotContains
 {
-    /// <summary>
-    /// FilterOperatorNames.NotContains = 'notContains'
-    /// pattern  Name.NotContains("Aurelius")
-    /// </summary>
-    [Fact]
-    public async Task GetUsers_WhenNotContainsFilterIsUsed()
+    public class UserServiceNotNotContainsTest(TestFixture testFixture):UserSharedService(testFixture)
     {
-        var queryRequest = RequestBuilder()
-            .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.NotContains, "Aurelius"))
-            .Build();
-        var data = await Context.Users.ApplyQueryResult(queryRequest);
+        /// <summary>
+        /// FilterOperatorNames.NotContains = 'notContains'
+        /// pattern  Name.NotContains("Aurelius")
+        /// </summary>
+        [Fact]
+        public async Task GetUsers_WhenNotContainsFilterIsUsed()
+        {
+            var queryRequest = RequestBuilder()
+                .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.NotContains, "Aurelius"))
+                .Build();
+            var data = await Context.Users.ApplyQueryResult(queryRequest);
 
-        data.Items.Should().NotBeNull();
-        data.TotalCount.Should().BeGreaterThan(0);
-    }
+            data.Items.Should().NotBeNull();
+            data.TotalCount.Should().BeGreaterThan(0);
+        }
     
-    /// <summary>
-    /// pattern = (x.Name.NotContains("Aurelius") AndAlso (x.LastName == "Cornelius"))
-    /// default logic = and
-    /// FilterRequestInstance("LastName", FilterOperatorNames.Equals, "Cornelius", logic= and  )
-    /// </summary>
-    [Fact]
-    public async Task GetUsers_WhenNotContainsAndLogicApplied()
-    {
-        var queryRequest = RequestBuilder()
-            .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.NotContains, "Aurelius"))
-            .AddFilter(FilterRequestInstance("LastName", FilterOperatorNames.Equals, "Cornelius"))
-            .Build();
-        var data = await Context.Users.ApplyQueryResult(queryRequest);
+        /// <summary>
+        /// pattern = (x.Name.NotContains("Aurelius") AndAlso (x.LastName == "Cornelius"))
+        /// default logic = and
+        /// FilterRequestInstance("LastName", FilterOperatorNames.Equals, "Cornelius", logic= and  )
+        /// </summary>
+        [Fact]
+        public async Task GetUsers_WhenNotContainsAndLogicApplied()
+        {
+            var queryRequest = RequestBuilder()
+                .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.NotContains, "Aurelius"))
+                .AddFilter(FilterRequestInstance("LastName", FilterOperatorNames.Equals, "Cornelius"))
+                .Build();
+            var data = await Context.Users.ApplyQueryResult(queryRequest);
 
-        data.Items.Should().NotBeNull();
-        data.TotalCount.Should().BeGreaterThan(0);
+            data.Items.Should().NotBeNull();
+            data.TotalCount.Should().BeGreaterThan(0);
+        }
     }
 }

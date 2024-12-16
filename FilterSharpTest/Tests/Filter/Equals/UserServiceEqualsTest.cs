@@ -4,7 +4,7 @@ using FilterSharpTest.Model;
 using FilterSharpTest.Shared;
 using FluentAssertions;
 
-namespace FilterSharpTest.Tests.FilterTest.Equals;
+namespace FilterSharpTest.Tests.Filter.Equals;
 
 /// <summary>
 /// only test on equals

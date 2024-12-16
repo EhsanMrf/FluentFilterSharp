@@ -1,9 +1,8 @@
-using FilterSharp.DataProcessing.ProcessorRequest.ChangeFields;
 using FilterSharp.Extensions;
 using FilterSharp.FluentSharp.Model;
 using FilterSharp.Input;
 
-namespace FilterSharp.DataProcessing.ProcessorRequest.Filter;
+namespace FilterSharp.DataProcessing.ProcessorRequest.ChangeFields.Filter;
 
 public class FilterRequestFieldsChange :IRequestFieldsChange
 {
@@ -17,10 +16,10 @@ public class FilterRequestFieldsChange :IRequestFieldsChange
         foreach (var filterSharpMapper in sharpMappers!)
         {
             List<string>? filterOperators = null;
-            if (filterSharpMapper.CanOperatorNames is {Count: > 0})
+            if (filterSharpMapper.AllowedOperators is {Count: > 0})
             {
                 filterOperators = [];
-                foreach (var filterOperator in filterSharpMapper.CanOperatorNames)
+                foreach (var filterOperator in filterSharpMapper.AllowedOperators)
                 {
                     var displayName = filterOperator.GetEnumDisplayName();
                     if (displayName != null)
@@ -30,13 +29,18 @@ public class FilterRequestFieldsChange :IRequestFieldsChange
 
             foreach (var filterRequest in filters!)
             {
+                
+                if (filterRequest.Field.Equals(filterSharpMapper.GetField()) 
+                    && !filterRequest.Field.Contains(filterSharpMapper.FilterFieldName!))
+                    throw new InvalidOperationException($"Filtering not allowed");
+                
                 if (filterRequest.Field.Equals(filterSharpMapper.FilterFieldName))
                 {
                     filterRequest.Field = filterSharpMapper.GetField();
                     if (!filterSharpMapper.CanFilter)
                         throw new InvalidOperationException($"Filtering not allowed");
                 }
-
+                
                 GuardOnFilterOperators( filterOperators, filterRequest);
             }
         }
@@ -50,7 +54,5 @@ public class FilterRequestFieldsChange :IRequestFieldsChange
         if (!isOperatorAllowed) 
             throw new InvalidOperationException("Filtering not allowed Operator");
     }
-    
-    
-    
+
 }

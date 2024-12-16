@@ -4,7 +4,7 @@ using FilterSharpTest.Model;
 using FilterSharpTest.Shared;
 using FluentAssertions;
 
-namespace FilterSharpTest.FilterTest.InRange;
+namespace FilterSharpTest.Tests.Filter.InRange;
 
 public class UserServiceInRangeTest(TestFixture testFixture): UserSharedService(testFixture)
 {

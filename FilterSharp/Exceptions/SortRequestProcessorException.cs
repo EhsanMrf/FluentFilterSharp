@@ -1,6 +1,3 @@
 namespace FilterSharp.Exceptions;
 
-public class SortRequestProcessorException
-{
-    
-}
+public class SortRequestProcessorException(string message) : BaseException(message);

@@ -4,7 +4,7 @@ using FilterSharpTest.Model;
 using FilterSharpTest.Shared;
 using FluentAssertions;
 
-namespace FilterSharpTest.FilterTest.LessThanOrEqual;
+namespace FilterSharpTest.Tests.Filter.LessThanOrEqual;
 
 public class UserServiceLessThanOrEqualTest(TestFixture testFixture):UserSharedService(testFixture)
 {

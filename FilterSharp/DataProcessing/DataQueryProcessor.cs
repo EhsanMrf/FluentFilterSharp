@@ -1,3 +1,4 @@
+using FilterSharp.DataProcessing.ChangeRequest;
 using FilterSharp.DataProcessing.DataFilter;
 using FilterSharp.DataProcessing.Pagination;
 using FilterSharp.DataProcessing.Sorting;
@@ -71,14 +72,4 @@ public sealed class DataQueryProcessor : IDataQueryProcessor
     {
         return  queryable.CountAsync();
     }  
-    
-    private List<T> FetchData<T>(IQueryable<T> queryable)
-    {
-        return  queryable.ToList();
-    }
-
-    private int CountData<T>(IQueryable<T> queryable)
-    {
-        return queryable.Count();
-    }
 }

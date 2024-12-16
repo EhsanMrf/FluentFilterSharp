@@ -8,7 +8,7 @@ public sealed class FilterSharpMapper
     public bool CanFilter { get; set; } = true;
     public bool CanSort { get; set; } = true;
     public string? FilterFieldName { get; set; }
-    public HashSet<FilterOperator>? CanOperatorNames { get; set; }
+    public HashSet<FilterOperator>? AllowedOperators { get; set; }
 
     private FilterSharpMapper()
     {
@@ -19,9 +19,14 @@ public sealed class FilterSharpMapper
         Field = field;
     }
 
-    internal bool DetectedFilterOperator()
+
+    internal void SetData(bool canFilter, bool canSort, string? filterFieldName,
+        HashSet<FilterOperator>? canOperatorNames)
     {
-        return CanOperatorNames != null && CanOperatorNames.Any();
+        CanFilter = canFilter;
+        CanSort = canSort;
+        FilterFieldName = filterFieldName;
+        AllowedOperators = canOperatorNames;
     }
 
     internal string GetField() => Field;

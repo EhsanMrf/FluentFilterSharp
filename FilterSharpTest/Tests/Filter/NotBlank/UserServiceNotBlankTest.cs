@@ -3,7 +3,7 @@ using FilterSharpTest.Fixture;
 using FilterSharpTest.Shared;
 using FluentAssertions;
 
-namespace FilterSharpTest.FilterTest.NotBlank;
+namespace FilterSharpTest.Tests.Filter.NotBlank;
 
 public class UserServiceNotBlankTest(TestFixture fixture):UserSharedService(fixture)
 {

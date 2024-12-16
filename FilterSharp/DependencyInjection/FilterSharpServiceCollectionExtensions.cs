@@ -1,9 +1,12 @@
-using FilterSharp.Caching;
 using FilterSharp.DataProcessing;
+using FilterSharp.DataProcessing.ChangeRequest;
 using FilterSharp.DataProcessing.DataFilter;
 using FilterSharp.DataProcessing.Mapp;
 using FilterSharp.DataProcessing.Pagination;
 using FilterSharp.DataProcessing.ProcessorRequest;
+using FilterSharp.DataProcessing.ProcessorRequest.ChangeFields;
+using FilterSharp.DataProcessing.ProcessorRequest.ChangeFields.Filter;
+using FilterSharp.DataProcessing.ProcessorRequest.ChangeFields.Sort;
 using FilterSharp.DataProcessing.Sorting;
 using FilterSharp.DependencyInjection.Locator;
 using FilterSharp.ExtendBehavior;
@@ -18,7 +21,9 @@ public static class FilterSharpServiceCollectionExtensions
     {
         services.InjectPaginationOption(configurePagination);
         services.AddSingleton<IDataQueryProcessor, DataQueryProcessor>();
-        
+
+        services.AddScoped<IRequestFieldsChange,SortRequestProcessor>();
+        services.AddScoped<IRequestFieldsChange,FilterRequestFieldsChange>();
         
         services.AddSingleton<IApplyChangesDataRequest, ApplyChangesDataRequest>();
         services.AddSingleton<IDataPaginationService, DataPaginationService>();
@@ -26,9 +31,10 @@ public static class FilterSharpServiceCollectionExtensions
         services.AddSingleton<IDataSortingService, DataSortingService>();
 
 
-        services.AddSingleton<IMapperCacheManager, MapperCacheManager>();
         services.AddSingleton<IMapperConfigurator, MapperConfigurator>();
-        services.AddScoped<IDataRequestProcessor, DataRequestProcessor>();
+        services.AddSingleton<IAttributeBasedMapperProvider, AttributeBasedMapperProvider>();
+        
+        services.AddScoped<IDataRequestProcessor, RequestTransformationProcessor>();
         
         services.InjectFilterSharpMappers();
         services.InjectExtendBehaviorException();
@@ -47,9 +53,9 @@ public static class FilterSharpServiceCollectionExtensions
                         t.BaseType.GetGenericTypeDefinition() == typeof(AbstractFilterSharpMapper<>));
 
         foreach (var mapperType in mapperTypes)
-            services.AddSingleton(mapperType);
+            services.AddScoped(mapperType);
+        
     }
-
     private static void InjectExtendBehaviorException(this IServiceCollection services)
     {
         var assemblies = AppDomain.CurrentDomain.GetAssemblies();

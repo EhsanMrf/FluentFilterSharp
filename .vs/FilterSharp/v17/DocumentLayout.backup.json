@@ -9,14 +9,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CF657596-6A8F-4AF5-978A-3AF6C2C70136}|FilterSharp\\FilterSharp.csproj|e:\\filtersharp\\filtersharp\\filtersharp\\dataprocessing\\idataqueryprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF657596-6A8F-4AF5-978A-3AF6C2C70136}|FilterSharp\\FilterSharp.csproj|solutionrelative:filtersharp\\dataprocessing\\idataqueryprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF657596-6A8F-4AF5-978A-3AF6C2C70136}|FilterSharp\\FilterSharp.csproj|e:\\filtersharp\\filtersharp\\filtersharp\\dependencyinjection\\filtersharpservicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF657596-6A8F-4AF5-978A-3AF6C2C70136}|FilterSharp\\FilterSharp.csproj|solutionrelative:filtersharp\\dependencyinjection\\filtersharpservicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF657596-6A8F-4AF5-978A-3AF6C2C70136}|FilterSharp\\FilterSharp.csproj|e:\\filtersharp\\filtersharp\\filtersharp\\dataprocessing\\datafilter\\datafilterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF657596-6A8F-4AF5-978A-3AF6C2C70136}|FilterSharp\\FilterSharp.csproj|solutionrelative:filtersharp\\dataprocessing\\datafilter\\datafilterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -72,7 +64,7 @@
               "RelativeDocumentMoniker": "FilterSharpTest\\UnitTest1.cs",
               "ToolTip": "E:\\FilterSharp\\FilterSharp\\FilterSharpTest\\UnitTest1.cs",
               "RelativeToolTip": "FilterSharpTest\\UnitTest1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-04T10:07:12.942Z",
               "EditorCaption": ""
@@ -103,52 +95,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "dd8286d3-8939-4a92-903d-bc29565b7ffb",
-        "Display": 0,
-        "X": 1,
-        "Y": 1,
-        "Width": 1534,
-        "Height": 814,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DataFilterService.cs",
-              "DocumentMoniker": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\DataProcessing\\DataFilter\\DataFilterService.cs",
-              "RelativeDocumentMoniker": "FilterSharp\\DataProcessing\\DataFilter\\DataFilterService.cs",
-              "ToolTip": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\DataProcessing\\DataFilter\\DataFilterService.cs",
-              "RelativeToolTip": "FilterSharp\\DataProcessing\\DataFilter\\DataFilterService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T10:19:30.285Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FilterSharpServiceCollectionExtensions.cs",
-              "DocumentMoniker": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\DependencyInjection\\FilterSharpServiceCollectionExtensions.cs",
-              "RelativeDocumentMoniker": "FilterSharp\\DependencyInjection\\FilterSharpServiceCollectionExtensions.cs",
-              "ToolTip": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\DependencyInjection\\FilterSharpServiceCollectionExtensions.cs",
-              "RelativeToolTip": "FilterSharp\\DependencyInjection\\FilterSharpServiceCollectionExtensions.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T10:14:31.407Z",
-              "EditorCaption": ""
             }
           ]
         }

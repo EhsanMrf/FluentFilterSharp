@@ -13,7 +13,7 @@ public abstract  class Startup
         var serviceCollection = new ServiceCollection();
 
         serviceCollection.AddFilterSharp(options =>
-        {
+        { 
             options.DefaultPageSize = 10;
         });
 

@@ -1,9 +1,9 @@
-using FilterSharp.FluentSharp;
+using FilterSharp.FluentSharp.Model;
 using FilterSharp.Input;
 
 namespace FilterSharp.DataProcessing.ProcessorRequest;
 
 public interface IDataRequestProcessor
 {
-    void ApplyChanges<T>(DataQueryRequest queryRequest, FilterSharpMapperBuilder<T> entity) where T : class;
+    void ApplyChanges(DataQueryRequest dataQueryRequest,ICollection<FilterSharpMapper>? sharpMappers);
 }

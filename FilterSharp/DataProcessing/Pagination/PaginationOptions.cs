@@ -1,11 +1,11 @@
 namespace FilterSharp.DataProcessing.Pagination;
 
-public class PaginationOptions
+public sealed class PaginationOptions
 {
     /// <summary>
     /// default number 0
     /// </summary>
-    public int DefaultPageNumber { get; set; } = 0; 
+    internal int DefaultPageNumber { get; set; } = 0; 
     
     /// <summary>
     /// default number 15

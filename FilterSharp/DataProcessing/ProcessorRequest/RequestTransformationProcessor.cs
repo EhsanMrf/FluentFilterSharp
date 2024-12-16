@@ -1,25 +1,18 @@
-using FilterSharp.DataProcessing.Dto;
-using FilterSharp.DataProcessing.ProcessorRequest.Filter;
-using FilterSharp.DataProcessing.ProcessorRequest.Sort;
+using FilterSharp.DataProcessing.ProcessorRequest.ChangeFields;
+using FilterSharp.FluentSharp.Model;
+using FilterSharp.Input;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace FilterSharp.DataProcessing.ProcessorRequest;
 
-public class RequestLogicProcessor(IFilterRequestProcessor filterRequestProcessor, ISortRequestProcessor sortRequestProcessor) : IDataRequestProcessor
+public class RequestTransformationProcessor(IServiceProvider serviceProvider) : IDataRequestProcessor
 {
-    public void ApplyChanges<T>(FilterQueryContext<T> context) where T : class
+    public void ApplyChanges(DataQueryRequest dataQueryRequest,ICollection<FilterSharpMapper>? sharpMappers)
     {
-        var filterSharpMappers = context.Builder?.GetSharpMappers().ToList();
-        if (filterSharpMappers?.Count == 0) return;
-        
-        filterRequestProcessor.FilterFieldsChange<T>(context.DataQueryRequest!, filterSharpMappers);
-        sortRequestProcessor.SortFieldChange<T>(context.DataQueryRequest!, filterSharpMappers);
-    }
-}
+        if (sharpMappers?.Count == 0) return;
 
-public class RequestAttributeProcessor:IDataRequestProcessor
-{
-    public void ApplyChanges<T>(FilterQueryContext<T> context) where T : class
-    {
-        throw new NotImplementedException();
+        var requiredService = serviceProvider.GetRequiredService<IEnumerable<IRequestFieldsChange>>();
+        foreach (var requestFieldsChange in requiredService)
+            requestFieldsChange.ChangeFields(dataQueryRequest!, sharpMappers);
     }
-}
+} 

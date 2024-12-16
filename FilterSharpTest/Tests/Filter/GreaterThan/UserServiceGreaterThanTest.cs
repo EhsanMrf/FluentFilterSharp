@@ -3,7 +3,8 @@ using FilterSharpTest.Fixture;
 using FilterSharpTest.Model;
 using FilterSharpTest.Shared;
 using FluentAssertions;
-namespace FilterSharpTest.FilterTest.GreaterThan;
+
+namespace FilterSharpTest.Tests.Filter.GreaterThan;
 
 public class UserServiceGreaterThanTest(TestFixture testFixture):UserSharedService(testFixture)
 {

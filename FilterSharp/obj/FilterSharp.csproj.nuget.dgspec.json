@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\FilterSharp.csproj",
-        "projectName": "FilterSharp",
+        "projectName": "FluentFilterSharp",
         "projectPath": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\FilterSharp.csproj",
         "packagesPath": "C:\\Users\\Ehsan\\.nuget\\packages\\",
         "outputPath": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\obj\\",

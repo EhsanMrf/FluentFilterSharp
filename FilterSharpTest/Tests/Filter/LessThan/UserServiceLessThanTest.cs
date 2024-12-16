@@ -4,7 +4,7 @@ using FilterSharpTest.Model;
 using FilterSharpTest.Shared;
 using FluentAssertions;
 
-namespace FilterSharpTest.FilterTest.LessThan;
+namespace FilterSharpTest.Tests.Filter.LessThan;
 
 public class UserServiceLessThanTest(TestFixture testFixture):UserSharedService(testFixture)
 {

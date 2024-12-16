@@ -4,7 +4,7 @@ using FilterSharpTest.Model;
 using FilterSharpTest.Shared;
 using FluentAssertions;
 
-namespace FilterSharpTest.Tests.FilterTest.Blank;
+namespace FilterSharpTest.Tests.Filter.Blank;
 
 public class UserServiceBlankTest(TestFixture fixture):UserSharedService(fixture)
 {
@@ -12,7 +12,7 @@ public class UserServiceBlankTest(TestFixture fixture):UserSharedService(fixture
     public async Task GetUsers_WhenBlankFilterIsUsed()
     {
         var queryRequest = RequestBuilder()
-            .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.Blank, ""))
+            .AddFilter(FilterRequestInstance(nameof(User.Name), FilterOperatorNames.Blank, ""))
             .Build();
         
         var data=await Context.Users.ApplyQueryResult(queryRequest);

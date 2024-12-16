@@ -2,8 +2,8 @@ namespace FilterSharp.Input.Builder;
 
 public sealed class DataQueryRequestBuilder
 {
-    private List<FilterRequest> _filters = new();
-    private List<SortingRequest>? _sorting = null;
+    private List<FilterRequest>? _filters = new();
+    private HashSet<SortingRequest>? _sorting = null;
     private int? _pageNumber = null;
     private int? _pageSize = null;
 
@@ -21,7 +21,7 @@ public sealed class DataQueryRequestBuilder
 
     public DataQueryRequestBuilder AddSorting(string fieldName, bool ascending)
     {
-        _sorting ??= new List<SortingRequest>();
+        _sorting ??= new HashSet<SortingRequest>();
         _sorting.Add(new SortingRequest(fieldName, ascending));
         return this;
     }
