@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace FilterSharp.Input;
 
 public sealed class SortingRequest
@@ -9,6 +11,7 @@ public sealed class SortingRequest
     {
         
     }
+    [JsonConstructor]
     public SortingRequest(string filedName, bool ascending)
     {
         FiledName = filedName;
