@@ -4,8 +4,10 @@ namespace FilterSharp.Input;
 
 public sealed class SortingRequest
 {
-    internal string FiledName { get; } = null!;
-    internal bool Ascending { get; }
+    
+    [property: JsonPropertyName("filedName")]
+    public string FiledName { get; } = null!;
+    public bool Ascending { get; }
 
     private SortingRequest()
     {

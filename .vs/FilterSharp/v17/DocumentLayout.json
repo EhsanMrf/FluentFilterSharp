@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\FilterSharp\\FilterSharp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CF657596-6A8F-4AF5-978A-3AF6C2C70136}|FilterSharp\\FilterSharp.csproj|e:\\filtersharp\\filtersharp\\filtersharp\\filtersharp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{CF657596-6A8F-4AF5-978A-3AF6C2C70136}|FilterSharp\\FilterSharp.csproj|solutionrelative:filtersharp\\filtersharp.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,6 +51,18 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FilterSharp",
+              "DocumentMoniker": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\FilterSharp.csproj",
+              "RelativeDocumentMoniker": "FilterSharp\\FilterSharp.csproj",
+              "ToolTip": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\FilterSharp.csproj",
+              "RelativeToolTip": "FilterSharp\\FilterSharp.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-17T20:14:35.599Z",
+              "EditorCaption": ""
             }
           ]
         },
