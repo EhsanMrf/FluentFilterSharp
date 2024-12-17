@@ -19,7 +19,7 @@
 Install the package via NuGet Package Manager:
 
 ```bash
-Install-Package FilterSharp
+Install-Package FluentFilterSharp 
 ```
 ---
 
