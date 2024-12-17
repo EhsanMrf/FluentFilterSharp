@@ -23,7 +23,7 @@ Install-Package FilterSharp
 ```
 ---
 
-##  ⚡ ** Injecting FilterSharp** ##
+##  ⚡ **Injecting FilterSharp** ##
 ```bash
 services.AddFilterSharp();
 ```
@@ -31,39 +31,59 @@ services.AddFilterSharp();
 ### 🔹 **How to Use This**
 
 ## 🛠️ **Usage** ##
-FilterSharp provides two main extension methods for applying queries to your data sources:
 
-ApplyQueryWithDetailsAsync – Returns data with additional metadata (e.g., total record count).
-ApplyQueryAsResultAsync – Returns filtered data only, without additional metadata.
 
-🛠️ How to Use
-Supported Filter Operators in FilterRequest
+**Supported Filter Operators in FilterRequest**
 In DataQueryRequest under the FilterRequest class, the following filter operators are supported for the Operator property:
 
 contains: Check if the value contains the specified string.
+Example: Check if the string "Hello World" contains the word "World".
+
 notContains: Check if the value does not contain the specified string.
+Example: Check if the string "Hello World" does not contain the word "Goodbye".
+
 equals: Check if the value is equal to the specified value.
+Example: Check if the number 5 is equal to 5.
+
 notEqual: Check if the value is not equal to the specified value.
+Example: Check if the number 5 is not equal to 10.
+
 lessThan: Check if the value is less than the specified value.
+Example: Check if the number 3 is less than 5.
+
 lessThanOrEqual: Check if the value is less than or equal to the specified value.
+Example: Check if the number 5 is less than or equal to 5.
+
 greaterThan: Check if the value is greater than the specified value.
+Example: Check if the number 7 is greater than 5.
+
 greaterThanOrEqual: Check if the value is greater than or equal to the specified value.
+Example: Check if the number 6 is greater than or equal to 5.
+
 blank: Check if the value is blank (null or empty).
+Example: Check if a field in the database is blank.
+
 notBlank: Check if the value is not blank.
+Example: Check if a field in the database is not blank.
+
 inRange: Check if the value is within a specified range.
-These operators can be used to build powerful and dynamic queries for your data sources.
-
-Nested Filters Support
-FilterSharp also supports nested filters. You can combine multiple filter conditions using logical operators.
-
-Logical Operators
-The Logic property in FilterRequest determines how the conditions are combined. By default, it is set to AND, meaning all conditions must be true. However, you can override this in your request by setting it to OR.
-
+Example: Check if the number 7 is within the range of 5 to 10.
 For example:
 
-AND (default): Ensures that all conditions must be true.
-OR: Ensures that at least one condition must be true.
+Nested Filters Support:
+Nested Filters: FilterSharp also supports nested filters, which allow you to build complex queries by combining multiple filter conditions.
 
+Logical Operators:
+The Logic property in FilterRequest determines how the conditions are combined. By default, it is set to AND, meaning all conditions must be true. However, you can override this in your request by setting it to OR.
+
+AND: All conditions must be true.
+OR: Any one of the conditions must be true.
+These operators and logical combinations allow you to create dynamic and flexible queries for your data sources.
+
+**FilterSharp provides two main extension methods for applying queries to your data sources:**
+
+ApplyQueryWithDetailsAsync – Returns data with additional metadata (e.g., total record count).
+ApplyQueryAsResultAsync – Returns filtered data only, without additional metadata.
 
 ```bash
 var data = await _dbContext.Users.ApplyQueryWithDetailsAsync(queryRequest); 
