@@ -25,7 +25,10 @@ Install-Package FilterSharp
 
 ##  ⚡ **Injecting FilterSharp** ##
 ```bash
-services.AddFilterSharp();
+        serviceCollection.AddFilterSharp(options =>
+        { 
+            options.DefaultPageSize = 10;
+        });
 ```
 
 ### 🔹 **How to Use This**
