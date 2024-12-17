@@ -47,11 +47,27 @@ public class UserFilterSharpMapper : AbstractFilterSharpMapper<User>
 {
     public override void Configuration(FilterSharpMapperBuilder<User> builder)
     {
-        builder.OnField(x => x.Age)
+        builder.OnField(x => x.Name)
+            .FilterFieldName("FirstName")
             .AllowedOperators([FilterOperator.Equals,FilterOperator.InRange])
             .DisableSort();
     }
 }
 ```
+OR
+
+```code
+public sealed class User
+{
+    public int Id { get; private set; }
+
+    [FilterSharp(FilterFieldName = "FirstName",AllowedOperators = [FilterOperator.Equals,FilterOperator.Contains])]
+    public string Name { get; private set; } 
+
+```
 ---
+## 🔒 **Security** ##
+
+FilterSharp integrates security features allowing you to manage query permissions through Fluent API and attribute-based configurations. This ensures your data queries are protected from unauthorized access.
+
 
