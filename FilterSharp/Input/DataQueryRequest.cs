@@ -1,9 +1,9 @@
 namespace FilterSharp.Input;
 
-public sealed class DataQueryRequest
+public  class DataQueryRequest
 {
-    public IEnumerable<FilterRequest>? Filters { get; private set; }
-    public HashSet<SortingRequest>? Sorting { get;private set; }
+    public IEnumerable<FilterRequest>? Filters { get;  set; }
+    public HashSet<SortingRequest>? Sorting { get; set; }
     public int? PageNumber { get; set; }
     public int? PageSize { get; set; }
 
