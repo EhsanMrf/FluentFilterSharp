@@ -14,7 +14,10 @@ public sealed class DataQueryProcessor : IDataQueryProcessor
     private readonly IDataFilterService _filterService = null!;
     private readonly IDataSortingService _sortingService = null!;
 
-    private DataQueryProcessor() { }
+    private DataQueryProcessor()
+    {
+    }
+
     public DataQueryProcessor(IApplyChangesDataRequest applyChangesDataRequest,
         IDataPaginationService dataPaginationService, IDataFilterService filterService,
         IDataSortingService sortingService)
@@ -26,13 +29,11 @@ public sealed class DataQueryProcessor : IDataQueryProcessor
     }
 
     public async Task<(List<T> items, int page, int pageSize, int totalCount)> ApplyQueryRequestAsync<T>(
-        IQueryable<T> queryable, DataQueryRequest queryRequest) where T : class
+        IQueryable<T> queryable, DataQueryRequest? queryRequest) where T : class
     {
-        GetDataChange<T>(queryRequest);
-        queryable = ApplyFilters(queryable, queryRequest);
-        queryable = ApplySorting(queryable, queryRequest);
+        queryable = ApplyQueryIfQueryRequestNotNull(queryable, queryRequest);
         queryable = ApplyPagination(queryable, queryRequest, out var pageNumber, out var pageSize);
-        
+
         var data = await FetchDataAsync(queryable);
         var totalCount = await CountDataAsync(queryable);
 
@@ -40,36 +41,50 @@ public sealed class DataQueryProcessor : IDataQueryProcessor
     }
 
 
-    private  void GetDataChange<T>(DataQueryRequest queryRequest) where T : class
+    private IQueryable<T> ApplyQueryIfQueryRequestNotNull<T>(IQueryable<T> queryable, DataQueryRequest? queryRequest)
+        where T : class
+    {
+        if (queryRequest is null)
+            return queryable;
+
+        GetDataChange<T>(queryRequest);
+        queryable = ApplyFilters(queryable, queryRequest);
+        queryable = ApplySorting(queryable, queryRequest);
+
+        return queryable;
+    }
+
+    private void GetDataChange<T>(DataQueryRequest? queryRequest) where T : class
     {
         _applyChangesDataRequest.GetDataChange<T>(queryRequest);
     }
 
-    
-    private  IQueryable<T> ApplyFilters<T>(IQueryable<T> queryable, DataQueryRequest queryRequest) where T : class
+
+    private IQueryable<T> ApplyFilters<T>(IQueryable<T> queryable, DataQueryRequest? queryRequest) where T : class
     {
-        return _filterService.ApplyFilters(queryable, queryRequest.Filters);
+        return _filterService.ApplyFilters(queryable, queryRequest?.Filters?.ToList());
     }
 
-    private  IQueryable<T> ApplySorting<T>(IQueryable<T> queryable, DataQueryRequest queryRequest)
+    private IQueryable<T> ApplySorting<T>(IQueryable<T> queryable, DataQueryRequest? queryRequest)
     {
         return _sortingService.ApplyOrderByMultiple(queryable, queryRequest?.Sorting?.ToList());
     }
 
-    private  IQueryable<T> ApplyPagination<T>(IQueryable<T> queryable, DataQueryRequest queryRequest, out int pageNumber, out int pageSize) where T : class
+    private IQueryable<T> ApplyPagination<T>(IQueryable<T> queryable, DataQueryRequest? queryRequest,
+        out int pageNumber, out int pageSize) where T : class
     {
         pageNumber = _dataPaginationService.GetPageNumber(queryRequest?.PageNumber);
         pageSize = _dataPaginationService.GetPageSize(queryRequest?.PageSize);
         return _dataPaginationService.ApplyPagination(queryable, queryRequest?.PageNumber, queryRequest?.PageSize);
     }
 
-    private  async Task<List<T>> FetchDataAsync<T>(IQueryable<T> queryable)
+    private async Task<List<T>> FetchDataAsync<T>(IQueryable<T> queryable)
     {
         return await queryable.ToListAsync();
     }
 
     private Task<int> CountDataAsync<T>(IQueryable<T> queryable)
     {
-        return  queryable.CountAsync();
-    }  
+        return queryable.CountAsync();
+    }
 }

@@ -1,13 +1,17 @@
 using System.ComponentModel.DataAnnotations;
 using FilterSharp.Attribute;
+using FilterSharp.Enum;
 
 namespace FilterSharpTest.Model;
 
 public sealed class User
 {
     public int Id { get; private set; }
-    [MaxLength(50)] public string Name { get; private set; } = null!;
+
+    [FilterSharp(FilterFieldName = "FirstName",AllowedOperators = [FilterOperator.Equals,FilterOperator.Contains])]
+    public string Name { get; private set; } 
     [MaxLength(100)] public string LastName { get; private set; } = null!;
+    
     public byte Age { get; private set; }
     public Guid Code { get; private set; }
 

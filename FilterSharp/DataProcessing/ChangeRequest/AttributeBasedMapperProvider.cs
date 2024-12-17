@@ -1,5 +1,6 @@
 using FilterSharp.Attribute;
 using FilterSharp.DataProcessing.Mapp;
+using FilterSharp.Enum;
 using FilterSharp.FluentSharp;
 using FilterSharp.FluentSharp.Model;
 
@@ -36,7 +37,7 @@ public sealed class AttributeBasedMapperProvider(IMapperConfigurator mapperConfi
             {
                 var mapper = new FilterSharpMapper(property.Name);
                 mapper.SetData(attribute.CanSort, attribute.CanSort, attribute.FilterFieldName,
-                    attribute.AllowedOperators);
+                    [..attribute.AllowedOperators]);
                 result.Add(mapper);
             }
         }
