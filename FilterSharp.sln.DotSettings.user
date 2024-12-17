@@ -12,21 +12,30 @@
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003ARelationalShapedQueryCompilingExpressionVisitor_002Ecs_002Fl_003AC_0021_003FUsers_003FEhsan_003FAppData_003FRoaming_003FJetBrains_003FRider2024_002E2_003Fresharper_002Dhost_003FDecompilerCache_003Fdecompiler_003Fd961748ae0684eccbc636b5ca7c46afe209c30_003F61_003F866bc978_003FRelationalShapedQueryCompilingExpressionVisitor_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AServiceProviderServiceExtensions_002Ecs_002Fl_003AC_0021_003FUsers_003FEhsan_003FAppData_003FRoaming_003FJetBrains_003FRider2024_002E2_003Fresharper_002Dhost_003FDecompilerCache_003Fdecompiler_003F3f0ea9a941cd4b7a8d16f1c5e5281755ff08_003Fb6_003F055c557e_003FServiceProviderServiceExtensions_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\Ehsan\AppData\Local\JetBrains\Rider2024.2\resharper-host\temp\Rider\vAny\CoverageData\_FilterSharp.-1785305391\Snapshot\snapshot.utdcvr</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=20f52476_002Daea4_002D491e_002Dbdb4_002D3f84a7902e4a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetUsers_WhenAgeInRangeIsUsed_ReverseRange" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=08a9efdc_002Dd598_002D4f13_002D8fb4_002D786c0817ccc3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetUsers_WhenContainsFilterIsUsed" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::6CC95544-115A-4667-A2B8-507DA43AD672::net8.0::FilterSharpTest.Tests.Filter.Contains.UserServiceContainsTest.GetUsers_WhenContainsFilterIsUsed&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=20f52476_002Daea4_002D491e_002Dbdb4_002D3f84a7902e4a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetUsers_WhenAgeInRangeIsUsed_ReverseRange" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=241755a8_002Ded93_002D400d_002Dab4a_002Dde577f73c0d2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetUsers_WhenBlankFilterIsUsed" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;ProjectFile&gt;6CC95544-115A-4667-A2B8-507DA43AD672/d:Tests/d:Filter/d:Blank/f:UserServiceBlankTest.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=331e8398_002Db617_002D451c_002D944f_002D2c2770fe1e94/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetUsers_WhenBlankFilterIsUsed #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::6CC95544-115A-4667-A2B8-507DA43AD672::net8.0::FilterSharpTest.Tests.Filter.Blank.UserServiceBlankTest.GetUsers_WhenBlankFilterIsUsed&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=331e8398_002Db617_002D451c_002D944f_002D2c2770fe1e94/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetUsers_WhenBlankFilterIsUsed #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=489be139_002D2a8e_002D475b_002D871c_002De6701cd3f705/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddUser_ShouldSaveUser" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5b82c519_002D45c3_002D4113_002Daa87_002D0b7d46f4d8d3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;FilterSharpTest&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7141ae5b_002D32cd_002D472e_002Db004_002D75b1c29a1265/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetUsers_WhenContainsFilterIsUsed #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=99419a56_002D060c_002D4227_002D8e22_002Da7d22791b70b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetUserByName_WhenEqualsFilterIsUsed" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b33780ff_002Dacc4_002D497d_002Db367_002D2602ea495e9a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsLocked="True" Name="GetUsers_WhenEqualsAndLogicApplied #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
@@ -40,16 +49,21 @@
     &lt;TestId&gt;xUnit::6CC95544-115A-4667-A2B8-507DA43AD672::net8.0::FilterSharpTest.Tests.Filter.Blank.UserServiceBlankTest.GetUsers_WhenBlankFilterIsUsed&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=df002274_002D60b9_002D477a_002Db9ea_002D3c3ea06f704e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;FilterSharpTest&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=df002274_002D60b9_002D477a_002Db9ea_002D3c3ea06f704e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;FilterSharpTest&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=edbca8f8_002D2261_002D4872_002Da626_002D470520229f40/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;FilterSharpTest&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eb1502df_002D9776_002D49c2_002D94db_002D357aec8854d0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetUserByName_WhenEqualsFilterIsUsed #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::6CC95544-115A-4667-A2B8-507DA43AD672::net8.0::FilterSharpTest.Tests.Filter.Equals.UserServiceEqualsTest.GetUserByName_WhenEqualsFilterIsUsed&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=edbca8f8_002D2261_002D4872_002Da626_002D470520229f40/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;FilterSharpTest&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f2d2969b_002D8612_002D451f_002D98a3_002D514447765a0d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetUsers_WhenAgeInRangeIsUsed_ReverseRange #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fc8ce0a9_002Df55a_002D48b6_002D94ab_002Dd0c52e3499da/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;FilterSharpTest&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fc8ce0a9_002Df55a_002D48b6_002D94ab_002Dd0c52e3499da/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;FilterSharpTest&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>

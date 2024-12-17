@@ -16,4 +16,15 @@ public  class DataQueryRequest
     {
         Sorting = sorting;
     }
+
+    internal static DataQueryRequest Create (IEnumerable<FilterRequest>? filters, HashSet<SortingRequest>? sorting, int? pageNumber, int? pageSize)
+    {
+        return new DataQueryRequest
+        {
+            Filters = filters,
+            Sorting = sorting,
+            PageNumber = pageNumber,
+            PageSize = pageSize
+        };
+    }
 }

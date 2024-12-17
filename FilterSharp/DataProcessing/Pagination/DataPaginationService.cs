@@ -16,6 +16,6 @@ public sealed class DataPaginationService(PaginationOptions paginationOptions) :
 
     public int GetPageSize(int? pageSize)
     {
-        return pageSize ?? paginationOptions.DefaultPageSize;
+        return pageSize is null or 0 ? paginationOptions.DefaultPageSize : pageSize.Value;
     }
 }

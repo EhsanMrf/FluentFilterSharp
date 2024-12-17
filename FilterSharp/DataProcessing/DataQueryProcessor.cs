@@ -32,9 +32,10 @@ public sealed class DataQueryProcessor : IDataQueryProcessor
         IQueryable<T> queryable, DataQueryRequest? queryRequest) where T : class
     {
         queryable = ApplyQueryIfQueryRequestNotNull(queryable, queryRequest);
+
         queryable = ApplyPagination(queryable, queryRequest, out var pageNumber, out var pageSize);
 
-        var data = await FetchDataAsync(queryable);
+        var data = await queryable.ToListAsync();
         var totalCount = await CountDataAsync(queryable);
 
         return (data, pageNumber, pageSize, totalCount);

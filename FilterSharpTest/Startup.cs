@@ -14,7 +14,7 @@ public abstract  class Startup
 
         serviceCollection.AddFilterSharp(options =>
         { 
-            options.DefaultPageSize = 10;
+            options.DefaultPageSize = 15;
         });
 
         serviceCollection.AddDbContext<AppDbContext>(options =>

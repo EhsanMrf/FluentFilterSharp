@@ -14,6 +14,7 @@ public class UserServiceContainsTest(TestFixture fixture) : UserSharedService(fi
     [Fact]
     public async Task GetUsers_WhenContainsFilterIsUsed()
     {
+        var users = Context.Users.ToList();
         var queryRequest = RequestBuilder()
             .AddFilter(FilterRequestInstance("Name", FilterOperatorNames.Contains, "Aurelius"))
             .Build();
