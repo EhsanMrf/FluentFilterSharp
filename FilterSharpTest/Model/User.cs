@@ -7,8 +7,7 @@ namespace FilterSharpTest.Model;
 public sealed class User
 {
     public int Id { get; private set; }
-
-    [FilterSharp(FilterFieldName = "FirstName",AllowedOperators = [FilterOperator.Equals,FilterOperator.Contains])]
+    [MaxLength(100)]
     public string Name { get; private set; } 
     [MaxLength(100)] public string LastName { get; private set; } = null!;
     

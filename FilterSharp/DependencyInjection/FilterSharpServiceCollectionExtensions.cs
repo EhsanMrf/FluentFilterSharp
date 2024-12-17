@@ -53,8 +53,13 @@ public static class FilterSharpServiceCollectionExtensions
                         t.BaseType.GetGenericTypeDefinition() == typeof(AbstractFilterSharpMapper<>));
 
         foreach (var mapperType in mapperTypes)
+        {
             services.AddScoped(mapperType);
-        
+            
+            var baseType = mapperType.BaseType;
+            if (baseType != null)
+                services.AddScoped(baseType, mapperType);
+        }
     }
     private static void InjectExtendBehaviorException(this IServiceCollection services)
     {

@@ -156,3 +156,4 @@ E:\FilterSharp\FilterSharp\FilterSharpTest\bin\Debug\net8.0\runtimes\win\lib\net
 E:\FilterSharp\FilterSharp\FilterSharpTest\bin\Debug\net8.0\CoverletSourceRootsMapping_FilterSharpTest
 E:\FilterSharp\FilterSharp\FilterSharpTest\bin\Debug\net8.0\FilterSharp.dll
 E:\FilterSharp\FilterSharp\FilterSharpTest\bin\Debug\net8.0\FilterSharp.pdb
+E:\FilterSharp\FilterSharp\FilterSharpTest\obj\Debug\net8.0\FilterSharpTest.sourcelink.json

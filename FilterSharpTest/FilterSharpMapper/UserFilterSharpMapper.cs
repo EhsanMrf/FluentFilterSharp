@@ -1,4 +1,3 @@
-using FilterSharp.Enum;
 using FilterSharp.FluentSharp;
 using FilterSharpTest.Model;
 
@@ -8,9 +7,6 @@ public class UserFilterSharpMapper : AbstractFilterSharpMapper<User>
 {
     public override void Configuration(FilterSharpMapperBuilder<User> builder)
     {
-        builder.OnField(x => x.Name)
-            .FilterFieldName("FirstName")
-            .AllowedOperators([FilterOperator.Equals,FilterOperator.InRange])
-            .DisableSort();
+        builder.OnField(x => x.Name).DisableSort();
     }
 }

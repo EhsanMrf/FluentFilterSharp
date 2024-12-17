@@ -23,7 +23,8 @@ public sealed class ApplyChangesDataRequest : IApplyChangesDataRequest
     {
         if (queryRequest == null) return;
 
-        var mapper = _serviceProvider.GetService(typeof(AbstractFilterSharpMapper<T>)) as AbstractFilterSharpMapper<T>;
+        var mapperType = typeof(AbstractFilterSharpMapper<>).MakeGenericType(typeof(T));
+        var mapper = _serviceProvider.GetService(mapperType) as AbstractFilterSharpMapper<T>;
 
         var attributeBasedMapperProvider = _serviceProvider.GetRequiredService<IAttributeBasedMapperProvider>();
         var filterSharpMappers = attributeBasedMapperProvider.GetListSharpMapper(mapper);

@@ -21,6 +21,6 @@ public interface IDataQueryProcessor
     /// - <see cref="int"/>: The page size (number of items per page).
     /// - <see cref="int"/>: The total count of items in the data source matching the criteria.
     /// </returns>
-    Task<(List<T> items, int page, int pageSize, int totalCount)> ApplyQueryRequestAsync<T>(IQueryable<T> queryable, DataQueryRequest queryRequest)where T : class;
+    Task<(List<T> items, int page, int pageSize, int totalCount)> ApplyQueryRequestAsync<T>(IQueryable<T> queryable, DataQueryRequest? queryRequest)where T : class;
     
 }

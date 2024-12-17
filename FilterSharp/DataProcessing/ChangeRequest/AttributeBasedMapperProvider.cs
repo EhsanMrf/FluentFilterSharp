@@ -36,7 +36,7 @@ public sealed class AttributeBasedMapperProvider(IMapperConfigurator mapperConfi
             if (attribute != null)
             {
                 var mapper = new FilterSharpMapper(property.Name);
-                mapper.SetData(attribute.CanSort, attribute.CanSort, attribute.FilterFieldName,
+                mapper.SetData(attribute.CanSort, attribute.CanSort, attribute.FilterFieldName??property.Name,
                     [..attribute.AllowedOperators]);
                 result.Add(mapper);
             }

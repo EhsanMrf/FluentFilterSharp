@@ -10,3 +10,4 @@ E:\FilterSharp\FilterSharp\FilterSharp\obj\Debug\net8.0\refint\FilterSharp.dll
 E:\FilterSharp\FilterSharp\FilterSharp\obj\Debug\net8.0\FilterSharp.pdb
 E:\FilterSharp\FilterSharp\FilterSharp\obj\Debug\net8.0\ref\FilterSharp.dll
 E:\FilterSharp\FilterSharp\FilterSharp\obj\Debug\net8.0\FilterSharp.csproj.AssemblyReference.cache
+E:\FilterSharp\FilterSharp\FilterSharp\obj\Debug\net8.0\FilterSharp.sourcelink.json
