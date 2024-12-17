@@ -19,13 +19,16 @@
 Install the package via NuGet Package Manager:
 
 ```bash
-Install-Package FilterSharp
+Install-Package FluentFilterSharp 
 ```
 ---
 
 ##  ⚡ **Injecting FilterSharp** ##
 ```bash
-services.AddFilterSharp();
+        serviceCollection.AddFilterSharp(options =>
+        { 
+            options.DefaultPageSize = 10;
+        });
 ```
 
 ### 🔹 **How to Use This**
