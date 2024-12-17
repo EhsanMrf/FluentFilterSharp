@@ -11,7 +11,7 @@ public class FilterRequestFieldsChange :IRequestFieldsChange
     {
         var filters = queryRequest.Filters?.ToList();
 
-        if (filters is {Count: 0}) return;
+        if (filters is {Count: 0} or null) return;
 
         foreach (var filterSharpMapper in sharpMappers!)
         {
