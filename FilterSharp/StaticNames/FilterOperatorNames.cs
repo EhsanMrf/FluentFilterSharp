@@ -15,4 +15,5 @@ public static class FilterOperatorNames
     public const string Blank="blank";
     public const string NotBlank="notBlank"; 
     public const string InRange="inRange";
+    public const string StartsWith="StartsWith";
 }
