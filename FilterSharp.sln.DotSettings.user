@@ -26,6 +26,12 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=331e8398_002Db617_002D451c_002D944f_002D2c2770fe1e94/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetUsers_WhenBlankFilterIsUsed #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3fd19afc_002D9b42_002D45c9_002D9afe_002Dfd3b0cbface4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetUsers_WhenStartsWithFilterMatches" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::6CC95544-115A-4667-A2B8-507DA43AD672::net8.0::FilterSharpTest.Tests.Filter.UserServiceStartsWithTest.GetUsers_WhenStartsWithFilterMatches&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::6CC95544-115A-4667-A2B8-507DA43AD672::net8.0::FilterSharpTest.Tests.Filter.UserServiceStartsWithTest.GetUsers_WhenStartsWithFilterDoesNotMatch&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=489be139_002D2a8e_002D475b_002D871c_002De6701cd3f705/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddUser_ShouldSaveUser" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
