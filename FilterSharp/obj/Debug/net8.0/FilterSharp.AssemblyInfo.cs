@@ -17,7 +17,7 @@ using System.Reflection;
 
 ")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.3.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.3+38ae36d3f68a2b39e2f788240d91ee296ac8be9a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.3+e74835ff6e3275b403a7680882413adf02fdaee8")]
 [assembly: System.Reflection.AssemblyProductAttribute("FilterSharp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FilterSharp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.3.0")]
