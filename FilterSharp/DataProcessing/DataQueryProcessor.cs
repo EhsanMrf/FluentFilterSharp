@@ -33,11 +33,10 @@ public sealed class DataQueryProcessor : IDataQueryProcessor
     {
         queryable = ApplyQueryIfQueryRequestNotNull(queryable, queryRequest);
 
-        queryable = ApplyPagination(queryable, queryRequest, out var pageNumber, out var pageSize);
-
-        var data = await queryable.ToListAsync();
         var totalCount = await CountDataAsync(queryable);
-
+        queryable = ApplyPagination(queryable, queryRequest, out var pageNumber, out var pageSize);
+        var data = await queryable.ToListAsync();
+        
         return (data, pageNumber, pageSize, totalCount);
     }
 

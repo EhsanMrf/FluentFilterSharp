@@ -28,8 +28,7 @@
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3fd19afc_002D9b42_002D45c9_002D9afe_002Dfd3b0cbface4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetUsers_WhenStartsWithFilterMatches" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::6CC95544-115A-4667-A2B8-507DA43AD672::net8.0::FilterSharpTest.Tests.Filter.UserServiceStartsWithTest.GetUsers_WhenStartsWithFilterMatches&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::6CC95544-115A-4667-A2B8-507DA43AD672::net8.0::FilterSharpTest.Tests.Filter.UserServiceStartsWithTest.GetUsers_WhenStartsWithFilterDoesNotMatch&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::6CC95544-115A-4667-A2B8-507DA43AD672::net8.0::FilterSharpTest.Tests.Filter.Blank.UserServiceBlankTest.GetUsers_WhenBlankFilterIsUsed&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=489be139_002D2a8e_002D475b_002D871c_002De6701cd3f705/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddUser_ShouldSaveUser" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
@@ -41,7 +40,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7141ae5b_002D32cd_002D472e_002Db004_002D75b1c29a1265/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetUsers_WhenContainsFilterIsUsed #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=99419a56_002D060c_002D4227_002D8e22_002Da7d22791b70b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetUserByName_WhenEqualsFilterIsUsed" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=99419a56_002D060c_002D4227_002D8e22_002Da7d22791b70b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetUserByName_WhenEqualsFilterIsUsed" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="E:\FilterSharp\FilterSharp\FilterSharpTest" Presentation="&amp;lt;FilterSharpTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b33780ff_002Dacc4_002D497d_002Db367_002D2602ea495e9a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsLocked="True" Name="GetUsers_WhenEqualsAndLogicApplied #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;

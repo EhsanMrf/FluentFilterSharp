@@ -7,11 +7,7 @@ internal static class FilterStrategyRegistry
 {
 
     private static readonly Dictionary<string, IFilterStrategy> Strategies = new();
-
-    static FilterStrategyRegistry()
-    {
-        RegisterAllStrategies();
-    }
+    
 
     internal static IFilterStrategy? GetStrategy(string operatorName)
     {
@@ -19,7 +15,7 @@ internal static class FilterStrategyRegistry
         return strategy;
     }
 
-    private static void RegisterAllStrategies()
+    internal static void RegisterAllStrategies()
     {
         var strategyTypes = AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(a => a.GetTypes())

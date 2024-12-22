@@ -10,6 +10,7 @@ using FilterSharp.DataProcessing.ProcessorRequest.ChangeFields.Sort;
 using FilterSharp.DataProcessing.Sorting;
 using FilterSharp.DependencyInjection.Locator;
 using FilterSharp.ExtendBehavior;
+using FilterSharp.Filter.Operator.Register;
 using FilterSharp.FluentSharp;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -38,7 +39,7 @@ public static class FilterSharpServiceCollectionExtensions
         
         services.InjectFilterSharpMappers();
         services.InjectExtendBehaviorException();
-        
+        FilterStrategyRegistry.RegisterAllStrategies();
         ServiceLocator.DataQueryProcessor= services.BuildServiceProvider().GetRequiredService<IDataQueryProcessor>()!;
 
         return services;
