@@ -67,3 +67,7 @@ TestResults/
 /FilterSharpTest/bin/Debug/net8.0/FilterSharp.dll
 /FilterSharp/obj/Debug/net8.0/ref/FilterSharp.dll
 /FilterSharp/bin/Debug/net8.0/FilterSharp.pdb
+/.vs/FilterSharp/v17/DocumentLayout.json
+/.vs/FilterSharp/v17/DocumentLayout.backup.json
+/.vs/FilterSharp/v17/.suo
+/FilterSharp.sln.DotSettings.user
