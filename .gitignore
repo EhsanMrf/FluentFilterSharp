@@ -47,3 +47,23 @@ TestResults/
 
 # Ignore AssemblyInfo.cs files
 *AssemblyInfo.cs
+/FilterSharp/bin/Debug/net8.0/FilterSharp.dll
+/FilterSharpTest/obj/Debug/net8.0/FilterSharpTest.AssemblyInfo.cs
+/FilterSharpTest/obj/Debug/net8.0/FilterSharpTest.AssemblyInfoInputs.cache
+/FilterSharpTest/obj/Debug/net8.0/FilterSharpTest.csproj.AssemblyReference.cache
+/FilterSharpTest/obj/Debug/net8.0/refint/FilterSharpTest.dll
+/FilterSharpTest/obj/Debug/net8.0/FilterSharpTest.dll
+*.vsidx
+/FilterSharp/obj/Debug/net8.0/FilterSharp.AssemblyInfoInputs.cache
+/FilterSharp/obj/Debug/net8.0/FilterSharp.dll
+/FilterSharp/obj/Debug/net8.0/FilterSharp.pdb
+/FilterSharp/obj/Debug/net8.0/refint/FilterSharp.dll
+/FilterSharp/obj/Debug/net8.0/FilterSharp.AssemblyInfo.cs
+/FilterSharpTest/obj/Debug/net8.0/FilterSharpTest.pdb
+/FilterSharpTest/obj/Debug/net8.0/ref/FilterSharpTest.dll
+/FilterSharpTest/bin/Debug/net8.0/FilterSharpTest.pdb
+/FilterSharpTest/bin/Debug/net8.0/FilterSharpTest.dll
+/FilterSharpTest/bin/Debug/net8.0/FilterSharp.pdb
+/FilterSharpTest/bin/Debug/net8.0/FilterSharp.dll
+/FilterSharp/obj/Debug/net8.0/ref/FilterSharp.dll
+/FilterSharp/bin/Debug/net8.0/FilterSharp.pdb
