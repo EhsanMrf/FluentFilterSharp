@@ -3,10 +3,11 @@ using FilterSharp.DataProcessing.Mapp;
 using FilterSharp.Enum;
 using FilterSharp.FluentSharp;
 using FilterSharp.FluentSharp.Model;
+using FilterSharp.TransActionService;
 
 namespace FilterSharp.DataProcessing.ChangeRequest;
 
-public sealed class AttributeBasedMapperProvider(IMapperConfigurator mapperConfigurator) :IAttributeBasedMapperProvider
+public sealed class AttributeBasedMapperProvider(IMapperConfigurator mapperConfigurator) :IAttributeBasedMapperProvider,ISingletonService
 {
     public IEnumerable<FilterSharpMapper>? GetListSharpMapper<T>(AbstractFilterSharpMapper<T>? sharpMapper) where T : class
     { 

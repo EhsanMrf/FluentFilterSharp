@@ -33,6 +33,15 @@ public sealed class FilterSharpMapperBuilder<T>
 
         _sharpMappers.Add(builder.FilterSharpMapper);
         return builder;
+    } 
+    
+    public void AllowedSelects(HashSet<string> selects)
+    {
+        selects.Guard("Cannot pass null to OnField", nameof(selects));
+
+        var filterSharpMapper = new FilterSharpMapper();
+        filterSharpMapper.SetSelects(selects);
+        _sharpMappers.Add(filterSharpMapper);
     }
     
     

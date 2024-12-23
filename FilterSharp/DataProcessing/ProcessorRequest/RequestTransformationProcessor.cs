@@ -1,11 +1,12 @@
-using FilterSharp.DataProcessing.ProcessorRequest.ChangeFields;
+using FilterSharp.DataProcessing.ProcessorRequest.ProcessFields;
 using FilterSharp.FluentSharp.Model;
 using FilterSharp.Input;
+using FilterSharp.TransActionService;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FilterSharp.DataProcessing.ProcessorRequest;
 
-public class RequestTransformationProcessor(IServiceProvider serviceProvider) : IDataRequestProcessor
+public class RequestTransformationProcessor(IServiceProvider serviceProvider) : IDataRequestProcessor,IScopeService
 {
     public void ApplyChanges(DataQueryRequest dataQueryRequest,ICollection<FilterSharpMapper>? sharpMappers)
     {

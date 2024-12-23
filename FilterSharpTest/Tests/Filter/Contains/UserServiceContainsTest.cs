@@ -22,7 +22,7 @@ public class UserServiceContainsTest(TestFixture fixture) : UserSharedService(fi
         var data = await Context.Users.ApplyQueryResult(queryRequest);
 
         data.Items.Should().NotBeNull();
-        data.TotalCount.Should().BeGreaterThan(0);
+        data.TotalCount.Should().Be(4);
     }
 
     /// <summary>
@@ -39,6 +39,6 @@ public class UserServiceContainsTest(TestFixture fixture) : UserSharedService(fi
             .Build();
         var data = await Context.Users.ApplyQueryResult(queryRequest);
         data.Items.Should().NotBeNull();
-        data.TotalCount.Should().BeGreaterThan(0);
+        data.TotalCount.Should().Be(1);
     }
 }

@@ -4,6 +4,7 @@ public sealed class DataQueryRequestBuilder
 {
     private List<FilterRequest>? _filters = new();
     private HashSet<SortingRequest>? _sorting = null;
+    private HashSet<string>? _selects = null;
     private int? _pageNumber = null;
     private int? _pageSize = null;
 
@@ -16,6 +17,12 @@ public sealed class DataQueryRequestBuilder
     public DataQueryRequestBuilder AddFilter(FilterRequest filterRequest)
     {
         _filters.Add(filterRequest);
+        return this;
+    } 
+    
+    public DataQueryRequestBuilder AddSelects(HashSet<string> selects)
+    {
+        _selects = selects;
         return this;
     }
 
@@ -45,7 +52,8 @@ public sealed class DataQueryRequestBuilder
             Filters = _filters,
             Sorting = _sorting,
             PageNumber = _pageNumber ?? 0,
-            PageSize = _pageSize ?? 0
+            PageSize = _pageSize ?? 0,
+            Selects = _selects
         };
     }
 }

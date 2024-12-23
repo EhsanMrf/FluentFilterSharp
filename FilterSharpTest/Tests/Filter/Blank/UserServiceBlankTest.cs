@@ -1,3 +1,5 @@
+using FilterSharp.Enum;
+using FilterSharp.Extensions;
 using FilterSharp.StaticNames;
 using FilterSharpTest.Fixture;
 using FilterSharpTest.Model;
@@ -11,6 +13,14 @@ public class UserServiceBlankTest(TestFixture fixture):UserSharedService(fixture
     [Fact]
     public async Task GetUsers_WhenBlankFilterIsUsed()
     {
+        // var queryRequest1 = RequestBuilder()
+        //     .AddFilter(FilterRequestInstance(nameof(User.Name), FilterOperatorNames.Equals, "Patricia"))
+        //     .AddSelects([nameof(User.Name),nameof(User.Age)])
+        //     .Build();
+        // var data1=await Context.Users.ApplyQueryAsResultAsync(queryRequest1);
+        //
+        
+        
         var queryRequest = RequestBuilder()
             .AddFilter(FilterRequestInstance(nameof(User.Name), FilterOperatorNames.Blank, ""))
             .Build();

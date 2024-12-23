@@ -9,17 +9,16 @@ public sealed class FilterSharpMapper
     public bool CanSort { get; set; } = true;
     public string? FilterFieldName { get; set; }
     public HashSet<FilterOperator>? AllowedOperators { get; set; }
-
-    private FilterSharpMapper()
-    {
-    }
-
+    public HashSet<string>? AllowedSelects { get; set; }
+    
     internal FilterSharpMapper(string field)
     {
         Field = field;
-    }
+    } 
+    internal FilterSharpMapper() { }
 
-
+    internal void SetSelects(HashSet<string> selects)=> AllowedSelects = selects;
+    
     internal void SetData(bool canFilter, bool canSort, string? filterFieldName,
         HashSet<FilterOperator>? canOperatorNames)
     {

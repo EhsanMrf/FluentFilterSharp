@@ -1,7 +1,7 @@
 using FilterSharp.FluentSharp.Model;
 using FilterSharp.Input;
 
-namespace FilterSharp.DataProcessing.ProcessorRequest.ChangeFields;
+namespace FilterSharp.DataProcessing.ProcessorRequest.ProcessFields;
 
 public interface IRequestFieldsChange
 {

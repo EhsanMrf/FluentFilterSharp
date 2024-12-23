@@ -1,10 +1,11 @@
 using FilterSharp.Exceptions;
 using FilterSharp.FluentSharp.Model;
 using FilterSharp.Input;
+using FilterSharp.TransActionService;
 
-namespace FilterSharp.DataProcessing.ProcessorRequest.ChangeFields.Sort;
+namespace FilterSharp.DataProcessing.ProcessorRequest.ProcessFields.Sort;
 
-public class SortRequestProcessor :IRequestFieldsChange
+public class SortRequestProcessor :IRequestFieldsChange,IScopeService
 {
     public void ChangeFields(DataQueryRequest queryRequest, ICollection<FilterSharpMapper>? sharpMappers)
     {

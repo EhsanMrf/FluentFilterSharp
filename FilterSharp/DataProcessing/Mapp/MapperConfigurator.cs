@@ -1,8 +1,9 @@
 using FilterSharp.FluentSharp;
+using FilterSharp.TransActionService;
 
 namespace FilterSharp.DataProcessing.Mapp;
 
-public class MapperConfigurator : IMapperConfigurator
+public class MapperConfigurator : IMapperConfigurator,ISingletonService
 {
     public FilterSharpMapperBuilder<T> Configure<T>(AbstractFilterSharpMapper<T> filterSharpMapper) where T : class
     {

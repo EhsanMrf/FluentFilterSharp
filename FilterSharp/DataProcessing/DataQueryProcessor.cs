@@ -3,11 +3,12 @@ using FilterSharp.DataProcessing.DataFilter;
 using FilterSharp.DataProcessing.Pagination;
 using FilterSharp.DataProcessing.Sorting;
 using FilterSharp.Input;
+using FilterSharp.TransActionService;
 using Microsoft.EntityFrameworkCore;
 
 namespace FilterSharp.DataProcessing;
 
-public sealed class DataQueryProcessor : IDataQueryProcessor
+public sealed class DataQueryProcessor : IDataQueryProcessor,ISingletonService
 {
     private readonly IApplyChangesDataRequest _applyChangesDataRequest = null!;
     private readonly IDataPaginationService _dataPaginationService = null!;
@@ -31,15 +32,31 @@ public sealed class DataQueryProcessor : IDataQueryProcessor
     public async Task<(List<T> items, int page, int pageSize, int totalCount)> ApplyQueryRequestAsync<T>(
         IQueryable<T> queryable, DataQueryRequest? queryRequest) where T : class
     {
-        queryable = ApplyQueryIfQueryRequestNotNull(queryable, queryRequest);
+        var queryChange = await ApplyChangeDataRequest<T>(queryable, queryRequest);
+        var data = await queryChange.queryable.ToListAsync();
 
-        var totalCount = await CountDataAsync(queryable);
-        queryable = ApplyPagination(queryable, queryRequest, out var pageNumber, out var pageSize);
-        var data = await queryable.ToListAsync();
-        
-        return (data, pageNumber, pageSize, totalCount);
+        return (data, queryChange.pageNumber, queryChange.pageSize, queryChange.totalCount);
+    }
+    
+    public async Task<(object items, int page, int pageSize, int totalCount)> ApplyQueryRequestItemsTypeObjectAsync<T>(
+        IQueryable<T> queryable, DataQueryRequest? queryRequest) where T : class
+    {
+        var queryChange = await ApplyChangeDataRequest<T>(queryable, queryRequest);
+        var data = await ProcessResultItem.GenerateItems<T>(queryChange.queryable, queryRequest);
+
+        return (data, queryChange.pageNumber, queryChange.pageSize, queryChange.totalCount);
     }
 
+
+    private async Task<(IQueryable<T> queryable, int totalCount, int pageNumber, int pageSize)>
+        ApplyChangeDataRequest<T>(IQueryable<T> queryable, DataQueryRequest? queryRequest) where T : class
+    {
+        queryable = ApplyQueryIfQueryRequestNotNull(queryable, queryRequest);
+        var totalCount = await CountDataAsync(queryable);
+        queryable = ApplyPagination(queryable, queryRequest, out var pageNumber, out var pageSize);
+
+        return (queryable, totalCount, pageNumber, pageSize);
+    }
 
     private IQueryable<T> ApplyQueryIfQueryRequestNotNull<T>(IQueryable<T> queryable, DataQueryRequest? queryRequest)
         where T : class
@@ -56,7 +73,7 @@ public sealed class DataQueryProcessor : IDataQueryProcessor
 
     private void GetDataChange<T>(DataQueryRequest? queryRequest) where T : class
     {
-        _applyChangesDataRequest.GetDataChange<T>(queryRequest);
+        _applyChangesDataRequest.ApplyDataChangesWithValidation<T>(queryRequest);
     }
 
 

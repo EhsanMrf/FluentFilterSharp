@@ -6,7 +6,7 @@ public  class DataQueryRequest
 {
     public IEnumerable<FilterRequest>? Filters { get;  set; }
     public HashSet<SortingRequest>? Sorting { get; set; }
-    
+    public HashSet<string>? Selects { get; set; }
     [property: JsonPropertyName("pageNumber")]
     public int? PageNumber { get; set; }
     [property: JsonPropertyName("pageSize")]
@@ -15,6 +15,10 @@ public  class DataQueryRequest
     internal void SetSorting(HashSet<SortingRequest>? sorting)
     {
         Sorting = sorting;
+    }
+    internal void SetSelects(HashSet<string>? selects)
+    {
+        Selects = selects;
     }
 
     internal static DataQueryRequest Create (IEnumerable<FilterRequest>? filters, HashSet<SortingRequest>? sorting, int? pageNumber, int? pageSize)

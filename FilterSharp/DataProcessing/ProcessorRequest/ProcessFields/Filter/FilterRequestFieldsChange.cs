@@ -1,10 +1,11 @@
 using FilterSharp.Extensions;
 using FilterSharp.FluentSharp.Model;
 using FilterSharp.Input;
+using FilterSharp.TransActionService;
 
-namespace FilterSharp.DataProcessing.ProcessorRequest.ChangeFields.Filter;
+namespace FilterSharp.DataProcessing.ProcessorRequest.ProcessFields.Filter;
 
-public class FilterRequestFieldsChange :IRequestFieldsChange
+public class FilterRequestFieldsChange :IRequestFieldsChange,IScopeService
 {
     
     public void ChangeFields(DataQueryRequest queryRequest, ICollection<FilterSharpMapper>? sharpMappers)

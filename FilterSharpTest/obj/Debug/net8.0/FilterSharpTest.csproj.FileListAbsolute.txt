@@ -157,3 +157,4 @@ E:\FilterSharp\FilterSharp\FilterSharpTest\bin\Debug\net8.0\CoverletSourceRootsM
 E:\FilterSharp\FilterSharp\FilterSharpTest\bin\Debug\net8.0\FilterSharp.dll
 E:\FilterSharp\FilterSharp\FilterSharpTest\bin\Debug\net8.0\FilterSharp.pdb
 E:\FilterSharp\FilterSharp\FilterSharpTest\obj\Debug\net8.0\FilterSharpTest.sourcelink.json
+E:\FilterSharp\FilterSharp\FilterSharpTest\bin\Debug\net8.0\System.Linq.Dynamic.Core.dll

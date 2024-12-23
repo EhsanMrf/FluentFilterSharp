@@ -1,17 +1,21 @@
+using System.Reflection;
 using FilterSharp.DataProcessing;
 using FilterSharp.DataProcessing.ChangeRequest;
 using FilterSharp.DataProcessing.DataFilter;
 using FilterSharp.DataProcessing.Mapp;
 using FilterSharp.DataProcessing.Pagination;
 using FilterSharp.DataProcessing.ProcessorRequest;
-using FilterSharp.DataProcessing.ProcessorRequest.ChangeFields;
-using FilterSharp.DataProcessing.ProcessorRequest.ChangeFields.Filter;
-using FilterSharp.DataProcessing.ProcessorRequest.ChangeFields.Sort;
+using FilterSharp.DataProcessing.ProcessorRequest.ProcessFields;
+using FilterSharp.DataProcessing.ProcessorRequest.ProcessFields.Filter;
+using FilterSharp.DataProcessing.ProcessorRequest.ProcessFields.Select;
+using FilterSharp.DataProcessing.ProcessorRequest.ProcessFields.Sort;
 using FilterSharp.DataProcessing.Sorting;
 using FilterSharp.DependencyInjection.Locator;
 using FilterSharp.ExtendBehavior;
 using FilterSharp.Filter.Operator.Register;
 using FilterSharp.FluentSharp;
+using FilterSharp.Select;
+using FilterSharp.TransActionService;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FilterSharp.DependencyInjection;
@@ -21,22 +25,10 @@ public static class FilterSharpServiceCollectionExtensions
     public static IServiceCollection AddFilterSharp(this IServiceCollection services,Action<PaginationOptions>? configurePagination = null)
     {
         services.InjectPaginationOption(configurePagination);
-        services.AddSingleton<IDataQueryProcessor, DataQueryProcessor>();
-
-        services.AddScoped<IRequestFieldsChange,SortRequestProcessor>();
-        services.AddScoped<IRequestFieldsChange,FilterRequestFieldsChange>();
         
-        services.AddSingleton<IApplyChangesDataRequest, ApplyChangesDataRequest>();
-        services.AddSingleton<IDataPaginationService, DataPaginationService>();
-        services.AddSingleton<IDataFilterService, DataFilterService>();
-        services.AddSingleton<IDataSortingService, DataSortingService>();
+        services.AddSingletonServices(Assembly.GetExecutingAssembly());
+        services.AddScopedServices(Assembly.GetExecutingAssembly());
 
-
-        services.AddSingleton<IMapperConfigurator, MapperConfigurator>();
-        services.AddSingleton<IAttributeBasedMapperProvider, AttributeBasedMapperProvider>();
-        
-        services.AddScoped<IDataRequestProcessor, RequestTransformationProcessor>();
-        
         services.InjectFilterSharpMappers();
         services.InjectExtendBehaviorException();
         FilterStrategyRegistry.RegisterAllStrategies();
@@ -80,5 +72,33 @@ public static class FilterSharpServiceCollectionExtensions
         configurePagination?.Invoke(paginationOptions);
     
         services.AddSingleton(paginationOptions);
+    }
+
+    private static void AddScopedServices(this IServiceCollection services, Assembly assembly)
+    {
+        var scopedTypes = assembly.GetTypes()
+            .Where(type => type.IsClass && !type.IsAbstract && typeof(IScopeService).IsAssignableFrom(type));
+        foreach (var type in scopedTypes)
+        {
+            var interfaceType = type.GetInterfaces().FirstOrDefault(i => i != typeof(IScopeService));
+
+            if (interfaceType != null) 
+                services.AddScoped(interfaceType, type);
+            else services.AddScoped(type);
+        }
+    }  
+    
+    private static void AddSingletonServices(this IServiceCollection services, Assembly assembly)
+    {
+        var scopedTypes = assembly.GetTypes()
+            .Where(type => type.IsClass && !type.IsAbstract && typeof(ISingletonService).IsAssignableFrom(type));
+        foreach (var type in scopedTypes)
+        {
+            var interfaceType = type.GetInterfaces().FirstOrDefault(i => i != typeof(ISingletonService));
+
+            if (interfaceType != null) 
+                services.AddSingleton(interfaceType, type);
+            else services.AddSingleton(type);
+        }
     }
 }

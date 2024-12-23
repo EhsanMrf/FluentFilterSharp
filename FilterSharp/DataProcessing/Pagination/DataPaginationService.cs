@@ -1,6 +1,8 @@
+using FilterSharp.TransActionService;
+
 namespace FilterSharp.DataProcessing.Pagination;
 
-public sealed class DataPaginationService(PaginationOptions paginationOptions) : IDataPaginationService
+public sealed class DataPaginationService(PaginationOptions paginationOptions) : IDataPaginationService,ISingletonService
 {
     public IQueryable<T> ApplyPagination<T>(IQueryable<T> queryable, int? pageNumber, int? pageSize) where T : class
     {

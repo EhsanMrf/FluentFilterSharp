@@ -1,9 +1,10 @@
 using System.Linq.Expressions;
 using FilterSharp.Input;
+using FilterSharp.TransActionService;
 
 namespace FilterSharp.DataProcessing.Sorting;
 
-public class DataSortingService :IDataSortingService
+public class DataSortingService :IDataSortingService,ISingletonService
 {
     public IQueryable<T> ApplyOrderByMultiple<T>(IQueryable<T> query, List<SortingRequest>? orderByClauses)
     {

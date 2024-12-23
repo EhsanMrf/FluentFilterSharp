@@ -29,6 +29,7 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+      <PackageReference Include="System.Linq.Dynamic.Core" Version="1.5.1" />
     </ItemGroup>
 
 </Project>
