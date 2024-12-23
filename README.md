@@ -70,10 +70,12 @@ FilterSharp integrates security features allowing you to manage query permission
 ApplyQueryWithDetailsAsync – Returns data with additional metadata (e.g., total record count).
 ApplyQueryAsResultAsync – Returns filtered data only, without additional metadata.
 
+**support selects**  ApplyQueryAsResultAsync
 ```bash
 var data = await _dbContext.Users.ApplyQueryWithDetailsAsync(queryRequest); 
-var data = await _dbContext.Users.ApplyQueryAsResultAsync(queryRequest);
+var data = await _dbContext.Users.ApplyQueryAsResultAsync(queryRequest);   //=> support selects
 ```
+
  ## **Sample post** ##
 ```bash
 POST /api/data-query HTTP/1.1
