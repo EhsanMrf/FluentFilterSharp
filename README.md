@@ -1,8 +1,6 @@
-# 🚀 **FilterSharp**
-
 **FilterSharp** is a powerful library for applying filtering, sorting, pagination, and change requests to `IQueryable` data sources in an efficient and secure manner.
 
-# **FilterSharp v1.0.6 Released!**
+# 🚀 **FilterSharp v1.0.6 Released!**
 We are excited to announce the release of FilterSharp v1.0.6, introducing powerful new features to enhance your query-building experience. 🎉
 
 # ✨ **What's New in v1.0.6?**
@@ -156,6 +154,9 @@ Example: Check if a field in the database is not blank.
 **inRange**: Check if the value is within a specified range.
 Example: Check if the number 7 is within the range of 5 to 10.
 For example:
+
+startWith: Check if the value starts with the specified string.
+Example: Check if the string "Hello World" starts with the word "Hello".
 
 Nested Filters Support:
 Nested Filters: FilterSharp also supports nested filters, which allow you to build complex queries by combining multiple filter conditions.
