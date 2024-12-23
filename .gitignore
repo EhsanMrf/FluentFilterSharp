@@ -37,3 +37,13 @@ TestResults/
 !*.csproj
 !*.sln
 !*.xaml
+
+
+# Ignore DLL files
+*.dll
+
+# Ignore PDB files
+*.pdb
+
+# Ignore AssemblyInfo.cs files
+*AssemblyInfo.cs
