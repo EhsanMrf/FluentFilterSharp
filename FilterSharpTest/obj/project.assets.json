@@ -2408,7 +2408,7 @@
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "FluentFilterSharp/1.0.3": {
+      "FluentFilterSharp/1.0.6": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -7215,7 +7215,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "FluentFilterSharp/1.0.3": {
+    "FluentFilterSharp/1.0.6": {
       "type": "project",
       "path": "../FilterSharp/FilterSharp.csproj",
       "msbuildProject": "../FilterSharp/FilterSharp.csproj"
@@ -7224,7 +7224,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "FluentAssertions >= 8.0.0-alpha.1",
-      "FluentFilterSharp >= 1.0.3",
+      "FluentFilterSharp >= 1.0.6",
       "Microsoft.EntityFrameworkCore >= 9.0.0",
       "Microsoft.EntityFrameworkCore.Sqlite >= 9.0.0",
       "Microsoft.Extensions.DependencyInjection >= 9.0.0",

@@ -1,4 +1,3 @@
-using FilterSharp.Enum;
 using FilterSharp.FluentSharp;
 using FilterSharpTest.Model;
 
