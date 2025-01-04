@@ -28,5 +28,5 @@ public sealed class FilterSharpMapper
         AllowedOperators = canOperatorNames;
     }
 
-    internal string GetField() => Field;
+    internal string? GetField() => Field;
 }

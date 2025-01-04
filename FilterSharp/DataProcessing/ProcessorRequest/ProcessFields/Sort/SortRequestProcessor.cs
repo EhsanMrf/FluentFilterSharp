@@ -28,8 +28,8 @@ public class SortRequestProcessor :IRequestFieldsChange,IScopeService
     private FilterSharpMapper? GetSharpMapper(SortingRequest sortingRequest,ICollection<FilterSharpMapper>? sharpMappers)
     {
         return sharpMappers!
-            .FirstOrDefault(x => x.GetField().Equals(sortingRequest.FiledName) 
-                                 || x.FilterFieldName!.Equals(sortingRequest.FiledName));
+            .FirstOrDefault(x =>x.GetField()!=null && x.GetField()!.Equals(sortingRequest.FiledName) 
+                                || x.FilterFieldName!=null&& x.FilterFieldName!.Equals(sortingRequest.FiledName));
     }
     private void GuardOnSharpMapper(FilterSharpMapper? mapper,SortingRequest sortingRequest)
     {
