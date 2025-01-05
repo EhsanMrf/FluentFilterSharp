@@ -1,9 +1,8 @@
 using FilterSharp.Filter;
-using FilterSharp.TransActionService;
 
 namespace FilterSharp.DataProcessing.DataFilter;
 
-public class DataFilterService : IDataFilterService,ISingletonService
+public class DataFilterService : IDataFilterService
 {
     public IQueryable<T> ApplyFilters<T>(IQueryable<T> queryable, ICollection<Input.FilterRequest>? filters)
         where T : class

@@ -3,6 +3,7 @@ using FilterSharp.Dto;
 using FilterSharp.Filter.Operator.Register;
 using FilterSharp.Input;
 using FilterSharp.StaticNames;
+using FilterSharp.TransActionService;
 
 namespace FilterSharp.Filter;
 
@@ -40,9 +41,13 @@ internal static class ExpressionFilterBuilder<T>
     {
         var property = Expression.Property(parameter, filterRequest.Field);
         var constants = BuildFilterExpressionHandler.BuildFilterExpression(property,filterRequest);
-        var strategy = FilterStrategyRegistry.GetStrategy(filterRequest.Operator!);
-        if (strategy != null)
-            return strategy.Apply(new FilterContext(property, constants, filterRequest));
+
+        using (var filterStrategyRegistry = new FilterStrategyRegistry())
+        {
+            var strategy = filterStrategyRegistry.GetStrategy(filterRequest.Operator!);
+            if (strategy != null)
+                return strategy.Apply(new FilterContext(property, constants, filterRequest));
+        }
 
         var comparisonOperator = ComparisonOperatorHandler.GetOperator(filterRequest.Operator!);
         return comparisonOperator(property, constants.First());

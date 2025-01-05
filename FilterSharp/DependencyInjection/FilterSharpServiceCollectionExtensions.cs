@@ -24,6 +24,8 @@ public static class FilterSharpServiceCollectionExtensions
 {
     public static IServiceCollection AddFilterSharp(this IServiceCollection services,Action<PaginationOptions>? configurePagination = null)
     {
+        //FilterStrategyRegistry.RegisterAllStrategies();
+
         services.InjectPaginationOption(configurePagination);
         
         services.AddSingletonServices(Assembly.GetExecutingAssembly());
@@ -31,7 +33,6 @@ public static class FilterSharpServiceCollectionExtensions
 
         services.InjectFilterSharpMappers();
         services.InjectExtendBehaviorException();
-        FilterStrategyRegistry.RegisterAllStrategies();
         ServiceLocator.DataQueryProcessor= services.BuildServiceProvider().GetRequiredService<IDataQueryProcessor>()!;
 
         return services;

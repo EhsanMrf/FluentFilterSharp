@@ -107,7 +107,7 @@
       }
     },
     "E:\\FilterSharp\\FilterSharp\\FilterSharp\\FilterSharp.csproj": {
-      "version": "1.0.6",
+      "version": "1.0.7",
       "restore": {
         "projectUniqueName": "E:\\FilterSharp\\FilterSharp\\FilterSharp\\FilterSharp.csproj",
         "projectName": "FluentFilterSharp",
