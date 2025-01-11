@@ -9,7 +9,7 @@
       "FilterSharpTest/1.0.0": {
         "dependencies": {
           "FluentAssertions": "8.0.0-alpha.1",
-          "FluentFilterSharp": "1.0.7",
+          "FluentFilterSharp": "1.0.8",
           "Microsoft.EntityFrameworkCore": "9.0.0",
           "Microsoft.EntityFrameworkCore.Sqlite": "9.0.0",
           "Microsoft.Extensions.DependencyInjection": "9.0.0",
@@ -17,7 +17,7 @@
           "coverlet.collector": "6.0.0",
           "xunit": "2.5.3",
           "xunit.runner.visualstudio": "2.5.3",
-          "FilterSharp": "1.0.7.0"
+          "FilterSharp": "1.0.8.0"
         },
         "runtime": {
           "FilterSharpTest.dll": {}
@@ -1516,23 +1516,23 @@
         }
       },
       "xunit.runner.visualstudio/2.5.3": {},
-      "FluentFilterSharp/1.0.7": {
+      "FluentFilterSharp/1.0.8": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.0",
           "System.Linq.Dynamic.Core": "1.5.1"
         },
         "runtime": {
           "FilterSharp.dll": {
-            "assemblyVersion": "1.0.7",
-            "fileVersion": "1.0.7.0"
+            "assemblyVersion": "1.0.8",
+            "fileVersion": "1.0.8.0"
           }
         }
       },
-      "FilterSharp/1.0.7.0": {
+      "FilterSharp/1.0.8.0": {
         "runtime": {
           "FilterSharp.dll": {
-            "assemblyVersion": "1.0.7.0",
-            "fileVersion": "1.0.7.0"
+            "assemblyVersion": "1.0.8.0",
+            "fileVersion": "1.0.8.0"
           }
         }
       }
@@ -2405,12 +2405,12 @@
       "path": "xunit.runner.visualstudio/2.5.3",
       "hashPath": "xunit.runner.visualstudio.2.5.3.nupkg.sha512"
     },
-    "FluentFilterSharp/1.0.7": {
+    "FluentFilterSharp/1.0.8": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "FilterSharp/1.0.7.0": {
+    "FilterSharp/1.0.8.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

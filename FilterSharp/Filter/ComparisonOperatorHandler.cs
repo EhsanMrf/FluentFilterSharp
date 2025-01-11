@@ -1,5 +1,8 @@
 using System.Linq.Expressions;
+using FilterSharp.Input;
+using System.Reflection.Metadata;
 using FilterSharp.StaticNames;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace FilterSharp.Filter;
 
@@ -22,5 +25,23 @@ internal static class ComparisonOperatorHandler
             return operatorFunc;
 
         throw new InvalidOperationException($"Unknown comparison operator: {operatorName}");
+    }
+}
+
+internal static class MemberExpressionHandler
+{
+    internal static MemberExpression GetMemberExpression(FilterRequest filterRequest, ParameterExpression parameter)
+    {
+        var propertyNames = filterRequest.Field.Split('.');
+
+        if (propertyNames.Length==1)
+            return Expression.Property(parameter, filterRequest.Field);
+
+        Expression currentExpression = parameter;
+        foreach (var propertyName in propertyNames)
+            currentExpression = Expression.Property(currentExpression, propertyName);
+        
+
+        return (MemberExpression)currentExpression;
     }
 }

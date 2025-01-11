@@ -39,7 +39,7 @@ internal static class ExpressionFilterBuilder<T>
 
     private static Expression BuildFilterExpression(FilterRequest filterRequest, ParameterExpression parameter)
     {
-        var property = Expression.Property(parameter, filterRequest.Field);
+        var property = MemberExpressionHandler.GetMemberExpression(filterRequest, parameter);
         var constants = BuildFilterExpressionHandler.BuildFilterExpression(property,filterRequest);
 
         using (var filterStrategyRegistry = new FilterStrategyRegistry())

@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "FilterSharp/1.0.7": {
+      "FilterSharp/1.0.8": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.0",
           "System.Linq.Dynamic.Core": "1.5.1"
@@ -147,7 +147,7 @@
     }
   },
   "libraries": {
-    "FilterSharp/1.0.7": {
+    "FilterSharp/1.0.8": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

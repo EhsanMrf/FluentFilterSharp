@@ -26,15 +26,28 @@ public sealed class FilterSharpMapperBuilder<T>
         if (fieldSelector.Body is not MemberExpression memberExpression)
             throw new ArgumentException("Expression must be a MemberExpression", nameof(fieldSelector));
         
-        var fieldName = memberExpression.Member.Name;
+        var fieldName = GetMemberExpressionPath(memberExpression);
+
         var mapper = new FilterSharpMapper(fieldName);
         mapper.FilterFieldName ??= fieldName;
         var builder = new FilterSharpMapperSettingsBuilder { FilterSharpMapper = mapper };
 
         _sharpMappers.Add(builder.FilterSharpMapper);
         return builder;
-    } 
-    
+    }
+
+    private string GetMemberExpressionPath(MemberExpression memberExpression)
+    {
+        var pathParts = new Stack<string>();
+
+        while (memberExpression != null)
+        {
+            pathParts.Push(memberExpression.Member.Name);
+            memberExpression = memberExpression.Expression as MemberExpression;
+        }
+        return string.Join(".", pathParts);
+    }
+
     public void AllowedSelects(HashSet<string> selects)
     {
         selects.Guard("Cannot pass null to OnField", nameof(selects));

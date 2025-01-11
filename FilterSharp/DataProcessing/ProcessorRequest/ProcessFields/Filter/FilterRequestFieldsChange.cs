@@ -32,7 +32,7 @@ public class FilterRequestFieldsChange :IRequestFieldsChange,IScopeService
             {
                 
                 if (filterRequest.Field.Equals(filterSharpMapper.GetField()) 
-                    && !filterRequest.Field.Contains(filterSharpMapper.FilterFieldName!))
+                    && !filterRequest.Field.Equals(filterSharpMapper.FilterFieldName!))
                     throw new InvalidOperationException($"Filtering not allowed");
                 
                 if (filterRequest.Field.Equals(filterSharpMapper.FilterFieldName))
