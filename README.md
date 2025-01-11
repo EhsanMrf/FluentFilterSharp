@@ -1,17 +1,7 @@
 **FilterSharp** is a powerful library for applying filtering, sorting, pagination, and change requests to `IQueryable` data sources in an efficient and secure manner.
 
-# 🚀 **FilterSharp v1.0.6 Released!**
-We are excited to announce the release of FilterSharp v1.0.6, introducing powerful new features to enhance your query-building experience. 🎉
-
-# ✨ **What's New in v1.0.6?**
-Dynamic Select Support
-You can now select specific fields in your queries using the ApplyQueryAsResultAsync method. This feature provides better control and flexibility when working with large datasets.
-
-# **🐛 Bug Fixes**
-Fixed an issue where some classes were not being injected correctly when using Dependency Injection.
-Fixed incorrect Total Count value in the query response.
-
----
+# 🚀 **FilterSharp v1.0.9 Released!**
+Support ValueObject or Nested object
 
 ## 📦 **Features**
 
